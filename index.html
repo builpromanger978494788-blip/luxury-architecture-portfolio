@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture — Luxury Design Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@200;300;400;500&amp;display=swap" rel="stylesheet">
   <style>
     *,
     *::before,
@@ -237,8 +232,9 @@
     /* ── Reveal animations ── */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+      transform: translateY(28px);
+      transition: opacity 1.1s var(--ease-out), transform 1.1s var(--ease-out);
+      will-change: transform, opacity;
     }
 
     .reveal.visible {
@@ -281,8 +277,10 @@
     .hero-bg-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
+      filter: blur(120px);
+      opacity: 0.6;
+      z-index: 0;
+      will-change: transform;
     }
 
     .hero-bg-orb-1 {
@@ -1024,6 +1022,7 @@
       background-size: cover;
       background-position: center;
       transition: transform 0.7s var(--ease);
+      will-change: transform;
     }
 
     .proj-card:hover .proj-img-inner {
@@ -1243,7 +1242,6 @@
       gap: 32px;
     }
 
-    .about-val {}
 
     .about-val-num {
       font-family: var(--font-display);
@@ -2097,7 +2095,121 @@
       }
 
     }
-  </style>
+  
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    .pv-proj-1 { background-image: url('images/homepage3.jpg'); background-size: cover; background-position: center; }
+    .pv-proj-2 { background-image: url('images/homepage2.jpg'); background-size: cover; background-position: center; }
+    .pv-proj-3 { background-image: url('ren/pw1.jpg'); background-size: cover; background-position: center; }
+    .pv-proj-4 { background-image: url('arch/sk1.jpg'); background-size: cover; background-position: center; }
+    .pv-proj-5 { background-image: url('red/kr2.jpg'); background-size: cover; background-position: center; }
+    .pv-proj-6 { background-image: url('ren/sw1.JPG'); background-size: cover; background-position: center; }
+    .pv-proj-7 { background-image: url('interior/ne1.jpeg'); background-size: cover; background-position: center; }
+    .pv-proj-8 { background-image: url('arch/ar8.jpeg'); background-size: cover; background-position: center; }
+    .pv-proj-9 { background-image: url('interior/id2.jpeg'); background-size: cover; background-position: center; }
+    .pv-proj-10 { background-image: url('arch/dp3.jpeg'); background-size: cover; background-position: center; }
+    .pv-proj-11 { background-image: url('red/rd2.jpeg'); background-size: cover; background-position: center; }
+    .pv-proj-12 { background-image: url('arch/nar6.jpeg'); background-size: cover; background-position: center; }
+</style>
 </head>
 
 <body>
@@ -2139,9 +2251,7 @@
       <div class="hero-grid-lines"></div>
       <div class="hero-content">
         <div class="hero-badge">Luxury Architecture &amp; Design Studio</div>
-        <h1 class="hero-title">
-          We Design Spaces<br>That <span class="highlight-text">Inspire</span>
-        </h1>
+        <h1 class="hero-title">We Design Spaces<br>That <span class="highlight-text">Inspire</span></h1>
         <p class="hero-sub">Architecture <span>·</span> Interior Design <span>·</span> 3D Visualization</p>
         <div class="hero-btns">
           <button class="btn-primary" onclick="navigate('projects')"><span>View Projects</span></button>
@@ -2157,7 +2267,7 @@
     <!-- Stats -->
     <div class="stats-strip">
       <div class="stat-item reveal">
-        <div class="stat-num">75+<span style="font-size:1.5rem">+</span></div>
+        <div class="stat-num">75+</div>
         <div class="stat-label">Projects Completed</div>
       </div>
       <div class="stat-item reveal reveal-delay-1">
@@ -2216,9 +2326,7 @@
       <div>
         <p class="section-label reveal">Our Philosophy</p>
         <h2 class="section-title reveal reveal-delay-1">Where Form Meets<br><em>Function</em></h2>
-        <p class="philosophy-text reveal reveal-delay-2">We believe great design is invisible — it simply feels right.
-          Our approach blends rigorous architectural thinking with an intuitive understanding of how people inhabit
-          space. Every project is an opportunity to create something that transcends the ordinary.</p>
+        <p class="philosophy-text reveal reveal-delay-2">We believe great design is invisible — it simply feels right. Our approach blends rigorous architectural thinking with an intuitive understanding of how people inhabit space. Every project is an opportunity to create something that transcends the ordinary.</p>
         <div style="margin-top: 40px" class="reveal reveal-delay-3">
           <a class="link-arrow" onclick="navigate('about')" style="color: var(--stone)">Our Story</a>
         </div>
@@ -2242,29 +2350,25 @@
         <div class="process-step reveal">
           <div class="step-num">01</div>
           <div class="step-title">Discovery</div>
-          <div class="step-text">We begin by deeply understanding your vision, lifestyle, and the possibilities inherent
-            in your space.</div>
+          <div class="step-text">We begin by deeply understanding your vision, lifestyle, and the possibilities inherent in your space.</div>
         </div>
         <div class="process-step reveal reveal-delay-1">
           <div class="step-dot"></div>
           <div class="step-num">02</div>
           <div class="step-title">Concept</div>
-          <div class="step-text">Our team develops refined concepts that translate your aspirations into spatial
-            narratives.</div>
+          <div class="step-text">Our team develops refined concepts that translate your aspirations into spatial narratives.</div>
         </div>
         <div class="process-step reveal reveal-delay-2">
           <div class="step-dot"></div>
           <div class="step-num">03</div>
           <div class="step-title">Design</div>
-          <div class="step-text">Every detail is considered — materials, light, proportion — to create a coherent whole.
-          </div>
+          <div class="step-text">Every detail is considered — materials, light, proportion — to create a coherent whole.</div>
         </div>
         <div class="process-step reveal reveal-delay-3">
           <div class="step-dot"></div>
           <div class="step-num">04</div>
           <div class="step-title">Realisation</div>
-          <div class="step-text">We oversee every aspect of delivery, ensuring the built result matches the design
-            vision.</div>
+          <div class="step-text">We oversee every aspect of delivery, ensuring the built result matches the design vision.</div>
         </div>
       </div>
     </section>
@@ -2272,9 +2376,7 @@
     <!-- Testimonial -->
     <section class="testimonial">
       <p class="section-label reveal" style="text-align:center">Client Words</p>
-      <blockquote class="testimonial-quote reveal reveal-delay-1">"Working with Architecture transformed not just our
-        space, but the way we experience it every day. The attention to detail and quiet elegance of their approach is
-        unparalleled."</blockquote>
+      <blockquote class="testimonial-quote reveal reveal-delay-1">"Working with Architecture transformed not just our space, but the way we experience it every day. The attention to detail and quiet elegance of their approach is unparalleled."</blockquote>
       <p class="testimonial-author reveal reveal-delay-2">— Elena Vasquez, Oslo Residence</p>
     </section>
 
@@ -2282,8 +2384,7 @@
       <div class="footer-top">
         <div>
           <div class="footer-logo">architecture</div>
-          <p class="footer-tagline">Luxury architecture and interior design studio. Creating spaces that inspire since
-            2006.</p>
+          <p class="footer-tagline">Luxury architecture and interior design studio. Creating spaces that inspire since 2006.</p>
         </div>
         <div class="footer-col">
           <h4>Studio</h4>
@@ -2339,24 +2440,14 @@
     <div class="projects-grid" id="projectsGrid">
       <div class="proj-card reveal" data-cat="architecture">
         <div class="proj-img">
-          <div class="proj-img-inner arch-vis-1"></div>
+          <div class="proj-img-inner pv-proj-1"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
-          'Modern Luxury Villa',
-          'Architecture',
-          'A luxurious modern villa crafted with elegant architecture and premium interiors.',
-          [
-          'arch/ap1.jpg',
-          'arch/ap2.jpg',
-          'arch/ap3.jpg',
-          'arch/ap4.jpg',
-          'arch/ap5.jpg',
-          'arch/ap6.jpg',
-          'arch/ap7.jpg'
-          ]
+            'Modern Luxury Villa',
+            'Architecture',
+            'A luxurious modern villa crafted with elegant architecture and premium interiors.',
+            ['arch/ap1.jpg','arch/ap2.jpg','arch/ap3.jpg','arch/ap4.jpg','arch/ap5.jpg','arch/ap6.jpg','arch/ap7.jpg']
           )">
-
             <span class="proj-view">View Project</span>
-
           </div>
         </div>
         <div class="proj-info">
@@ -2364,26 +2455,15 @@
           <div class="proj-title">Modern Luxury Villa</div>
         </div>
       </div>
-
       <div class="proj-card reveal reveal-delay-1" data-cat="interior">
-
         <div class="proj-img">
-
-          <div class="proj-img-inner arch-vis-2"></div>
-
+          <div class="proj-img-inner pv-proj-2"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
-        'Specious Interior',
-        'Interior',
-        'A modern and elegant interior crafted with luxurious textures, warm lighting, and functional living spaces.',
-        [
-        'interior/sm1.jpg',
-        'interior/sm2.jpg',
-        'interior/sm3.jpg',
-        'interior/sm4.jpg',
-        'interior/sm5.jpg',
-        ]
-        )">
-
+            'Specious Interior',
+            'Interior',
+            'A modern and elegant interior crafted with luxurious textures, warm lighting, and functional living spaces.',
+            ['interior/sm1.jpg','interior/sm2.jpg','interior/sm3.jpg','interior/sm4.jpg','interior/sm5.jpg']
+          )">
             <span class="proj-view">View Project</span>
           </div>
         </div>
@@ -2392,319 +2472,182 @@
           <div class="proj-title">Specious Interior</div>
         </div>
       </div>
-
       <div class="proj-card reveal reveal-delay-2" data-cat="renovation">
-
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-3"></div>
-
+          <div class="proj-img-inner pv-proj-3"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
-        'Patil Wada',
-        'Renovation',
-        'A thoughtfully renovated heritage-inspired space blending traditional character with modern comfort and refined detailing.',
-        [
-        'ren/pw1.jpg',
-        'ren/pw2.jpg',
-        'ren/pw3.jpg',
-        'ren/pw4.jpg'
-        ]
-        )">
-
+            'Patil Wada',
+            'Renovation',
+            'A thoughtfully renovated heritage-inspired space blending traditional character with modern comfort and refined detailing.',
+            ['ren/pw1.jpg','ren/pw2.jpg','ren/pw3.jpg','ren/pw4.jpg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Renovation</div>
           <div class="proj-title">Patil Wada</div>
         </div>
-
       </div>
-
-
       <div class="proj-card reveal" data-cat="architecture">
-
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-4"></div>
-
+          <div class="proj-img-inner pv-proj-4"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
-      'Sandeep Kalbar',
-      'Architecture',
-      'A contemporary architectural project designed with modern aesthetics, spacious planning, and elegant exterior detailing.',
-      [
-      'arch/sk1.jpg',
-      'arch/sk2.jpg',
-      'arch/sk3.jpg',
-      'arch/sk4.jpg',
-      'arch/sk5.jpg'
-      ]
-      )">
-
+            'Sandeep Kalbar',
+            'Architecture',
+            'A contemporary architectural project designed with modern aesthetics, spacious planning, and elegant exterior detailing.',
+            ['arch/sk1.jpg','arch/sk2.jpg','arch/sk3.jpg','arch/sk4.jpg','arch/sk5.jpg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
         </div>
         <div class="proj-info">
           <div class="proj-cat">Architecture</div>
           <div class="proj-title">Sandeep Kalbar</div>
         </div>
-
       </div>
       <div class="proj-card reveal reveal-delay-1" data-cat="residential">
-
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-5"></div>
-
+          <div class="proj-img-inner pv-proj-5"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
-          'Krushnkung',
-          'Residential',
-          'A premium residential project designed with modern living spaces, elegant interiors, and contemporary architectural aesthetics.',
-          [
-          'red/kr1.jpg',
-          'red/kr2.jpg',
-          'red/kr3.jpeg',
-          'red/kr4.jpeg'
-          ]
+            'Krushnkung',
+            'Residential',
+            'A premium residential project designed with modern living spaces, elegant interiors, and contemporary architectural aesthetics.',
+            ['red/kr1.jpg','red/kr2.jpg','red/kr3.jpeg','red/kr4.jpeg']
           )">
-
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Residential</div>
           <div class="proj-title">Krushnkung</div>
         </div>
-
       </div>
       <div class="proj-card reveal reveal-delay-2" data-cat="renovation">
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-6"></div>
-
-          <div class="proj-img-overlay"
-            onclick="openProjectModal('Swapnpurti, Dapoli','Renovation','A beautifully renovated residential project in Dapoli designed with modern comfort and elegant detailing.',['ren/sw1.jpg','ren/sw2.jpg','ren/sw3.jpg','ren/sw4.jpeg'])">
-
+          <div class="proj-img-inner pv-proj-6"></div>
+          <div class="proj-img-overlay" onclick="openProjectModal(
+            'Swapnpurti, Dapoli',
+            'Renovation',
+            'A beautifully renovated residential project in Dapoli designed with modern comfort and elegant detailing.',
+            ['ren/sw1.jpg','ren/sw2.jpg','ren/sw3.jpg','ren/sw4.jpeg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Renovation</div>
           <div class="proj-title">Swapnpurti, Dapoli</div>
         </div>
-
       </div>
-
       <div class="proj-card reveal" data-cat="interior">
-
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-7"></div>
-
+          <div class="proj-img-inner pv-proj-7"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
             'Nehra',
             'Interior',
             'A modern luxury residence designed with elegant architecture and spacious contemporary living.',
-            [
-              'interior/ne1.jpeg',
-              'interior/ne2.jpeg',
-              'interior/ne3.jpeg',
-              'interior/ne4.jpeg',
-              'interior/ne5.jpeg'
-              
-            ]
-            )">
-
+            ['interior/ne1.jpeg','interior/ne2.jpeg','interior/ne3.jpeg','interior/ne4.jpeg','interior/ne5.jpeg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Interior</div>
           <div class="proj-title">Nehra</div>
         </div>
       </div>
-
-      <div class="proj-card reveal" data-cat="architecture">
-
+      <div class="proj-card reveal reveal-delay-1" data-cat="architecture">
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-8"></div>
-
+          <div class="proj-img-inner pv-proj-8"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
             'New Villa',
             'Architecture',
             'A modern luxury residence designed with elegant architecture and spacious contemporary living.',
-            [
-            'arch/ar1.jpeg',
-            'arch/ar2.jpeg',
-            'arch/ar3.jpeg',
-            'arch/ar4.jpeg',
-            'arch/ar5.jpeg',
-            'arch/ar6.jpeg',
-            'arch/ar7.jpeg'
-            ]
-            )">
-
+            ['arch/ar1.jpeg','arch/ar2.jpeg','arch/ar3.jpeg','arch/ar4.jpeg','arch/ar5.jpeg','arch/ar6.jpeg','arch/ar7.jpeg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Architecture</div>
           <div class="proj-title">New Villa</div>
         </div>
-
       </div>
-      <div class="proj-card reveal" data-cat="interior">
-
+      <div class="proj-card reveal reveal-delay-2" data-cat="interior">
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-9"></div>
-
+          <div class="proj-img-inner pv-proj-9"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
-            'interior designs',
+            'Interior Designs',
             'Interior',
             'A modern luxury residence designed with elegant architecture and spacious contemporary living.',
-            [
-            'interior/id1.jpeg',
-            'interior/id2.jpeg',
-            'interior/id3.jpeg',
-            'interior/id4.jpeg',
-            'interior/id5.jpeg',
-            'interior/id6.jpeg'
-            ]
-            )">
-
+            ['interior/id1.jpeg','interior/id2.jpeg','interior/id3.jpeg','interior/id4.jpeg','interior/id5.jpeg','interior/id6.jpeg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Interior</div>
           <div class="proj-title">Interior Designs</div>
         </div>
-
       </div>
       <div class="proj-card reveal" data-cat="architecture">
-
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-10"></div>
-
+          <div class="proj-img-inner pv-proj-10"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
             'Dhudhganga Pathsawnstha',
             'Architecture',
             'A modern luxury residence designed with elegant architecture and spacious contemporary living.',
-            [
-            'arch/dp1.jpeg',
-            'arch/dp2.jpeg',
-            'arch/dp3.jpeg',
-            'arch/dp4.jpeg',
-            'arch/dp5.jpeg',
-            'arch/dp6.jpeg',
-            'arch/dp7.jpeg',
-            'arch/dp8.jpeg'
-            ]
-            )">
-
+            ['arch/dp1.jpeg','arch/dp2.jpeg','arch/dp3.jpeg','arch/dp4.jpeg','arch/dp5.jpeg','arch/dp6.jpeg','arch/dp7.jpeg','arch/dp8.jpeg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Architecture</div>
           <div class="proj-title">Dhudhganga Pathsawnstha</div>
         </div>
-
       </div>
-      <div class="proj-card reveal" data-cat="residential">
-
+      <div class="proj-card reveal reveal-delay-1" data-cat="residential">
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-11"></div>
-
+          <div class="proj-img-inner pv-proj-11"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
             'Residential Project',
             'Residential',
             'A modern luxury residence designed with elegant architecture and spacious contemporary living.',
-            [
-            'red/rd1.jpeg',
-            'red/rd2.jpeg',
-            'red/rd3.jpeg',
-            'red/rd4.jpeg'
-            ]
-            )">
-
+            ['red/rd1.jpeg','red/rd2.jpeg','red/rd3.jpeg','red/rd4.jpeg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Residential</div>
           <div class="proj-title">Residential Project</div>
         </div>
-
       </div>
-      <div class="proj-card reveal" data-cat="architecture">
-
+      <div class="proj-card reveal reveal-delay-2" data-cat="architecture">
         <div class="proj-img">
-
-          <div class="proj-img-inner pv-12"></div>
-
+          <div class="proj-img-inner pv-proj-12"></div>
           <div class="proj-img-overlay" onclick="openProjectModal(
             'New Architecture',
             'Architecture',
             'A modern luxury residence designed with elegant architecture and spacious contemporary living.',
-            [
-            'arch/nar1.jpeg',
-            'arch/nar2.jpeg',
-            'arch/nar3.jpeg',
-            'arch/nar4.jpeg',
-            'arch/nar5.jpeg',
-            'arch/nar6.jpeg'
-            ]
-            )">
-
+            ['arch/nar1.jpeg','arch/nar2.jpeg','arch/nar3.jpeg','arch/nar4.jpeg','arch/nar5.jpeg','arch/nar6.jpeg']
+          )">
             <span class="proj-view">View Project</span>
-
           </div>
-
         </div>
-
         <div class="proj-info">
           <div class="proj-cat">Architecture</div>
           <div class="proj-title">New Architecture</div>
         </div>
-
-      </div>
-    </div>
+      </div></div>
 
     <footer>
       <div class="footer-top">
         <div>
           <div class="footer-logo">architecture</div>
-          <p class="footer-tagline">Creating spaces that inspire since 2006.</p>
+          <p class="footer-tagline">Luxury architecture and interior design studio. Creating spaces that inspire since 2006.</p>
         </div>
         <div class="footer-col">
           <h4>Studio</h4>
@@ -2730,7 +2673,7 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio.</span></div>
+      <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio. All rights reserved.</span></div>
     </footer>
   </div>
 
@@ -2743,12 +2686,8 @@
       <div>
         <p class="section-label reveal">Our Story</p>
         <p class="about-lead reveal reveal-delay-1">Born from a passion for spaces that move the soul.</p>
-        <p class="about-text reveal reveal-delay-2">Architecture Studio was founded in 2006 with a singular conviction:
-          that the spaces we inhabit shape who we become. From our studios in New York, Oslo, and Milan, we've spent
-          nearly two decades translating this belief into homes, towers, and interiors that endure.</p>
-        <p class="about-text reveal reveal-delay-3">Our practice is built on deep collaboration — with clients, with
-          craftspeople, with the contexts in which we work. We listen before we design, and we design before we draw.
-        </p>
+        <p class="about-text reveal reveal-delay-2">Architecture Studio was founded in 2006 with a singular conviction: that the spaces we inhabit shape who we become. From our studios in New York, Oslo, and Milan, we've spent nearly two decades translating this belief into homes, towers, and interiors that endure.</p>
+        <p class="about-text reveal reveal-delay-3">Our practice is built on deep collaboration — with clients, with craftspeople, with the contexts in which we work. We listen before we design, and we design before we draw.</p>
         <div class="about-values reveal reveal-delay-4">
           <div class="about-val">
             <div class="about-val-num">240+</div>
@@ -2817,16 +2756,12 @@
       </div>
 
     </div>
-  </div>
-
-  <footer>
-
 
     <footer>
       <div class="footer-top">
         <div>
           <div class="footer-logo">architecture</div>
-          <p class="footer-tagline">Creating spaces that inspire since 2006.</p>
+          <p class="footer-tagline">Luxury architecture and interior design studio. Creating spaces that inspire since 2006.</p>
         </div>
         <div class="footer-col">
           <h4>Studio</h4>
@@ -2852,17 +2787,16 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio.</span></div>
+      <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio. All rights reserved.</span></div>
     </footer>
-    </div>
+  </div>
 
     <!-- ═══════════ SERVICES PAGE ═══════════ -->
     <div class="page" id="page-services">
       <div class="services-hero">
         <p class="section-label reveal">What We Offer</p>
         <h1 class="section-title reveal reveal-delay-1">Our <em>Services</em></h1>
-        <p class="reveal reveal-delay-2"
-          style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 16px; max-width: 480px; line-height: 1.8;">A
+        <p class="reveal reveal-delay-2" style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 16px; max-width: 480px; line-height: 1.8;">A
           complete range of architectural and design services, delivered with precision and intention.</p>
       </div>
 
@@ -2871,55 +2805,41 @@
           <div class="svc-num">01</div>
           <div class="svc-icon svc-icon-1">🏛</div>
           <div class="svc-title">Interior Design</div>
-          <div class="svc-text">We create interiors that are both visually compelling and deeply liveable — spaces where
-            every element has been considered for its contribution to the whole.</div>
-          <div class="svc-features">
-            <div class="svc-feat">Concept development & mood boards</div>
-            <div class="svc-feat">Material & finish specification</div>
-            <div class="svc-feat">Furniture selection & procurement</div>
-            <div class="svc-feat">Lighting design</div>
-          </div>
+          <div class="svc-text">We create interiors that are both visually compelling and deeply liveable — spaces where every element has been considered for its contribution to the whole.</div>
+          <div class="svc-features"><div class="svc-feat">Concept development &amp; mood boards</div>
+            <div class="svc-feat">Material &amp; finish specification</div>
+            <div class="svc-feat">Furniture selection &amp; procurement</div>
+            <div class="svc-feat">Lighting design</div></div>
         </div>
         <div class="svc-card reveal reveal-delay-1">
           <div class="svc-num">02</div>
           <div class="svc-icon svc-icon-2">📐</div>
           <div class="svc-title">Architecture Planning</div>
-          <div class="svc-text">From master planning to detailed design, our architectural services cover every scale of
-            project with the same rigorous attention to craft and context.</div>
-          <div class="svc-features">
-            <div class="svc-feat">Feasibility & site analysis</div>
-            <div class="svc-feat">Schematic & design development</div>
-            <div class="svc-feat">Planning & permit applications</div>
-            <div class="svc-feat">Construction documentation</div>
-          </div>
+          <div class="svc-text">From master planning to detailed design, our architectural services cover every scale of project with the same rigorous attention to craft and context.</div>
+          <div class="svc-features"><div class="svc-feat">Feasibility &amp; site analysis</div>
+            <div class="svc-feat">Schematic &amp; design development</div>
+            <div class="svc-feat">Planning &amp; permit applications</div>
+            <div class="svc-feat">Construction documentation</div></div>
         </div>
         <div class="svc-card reveal reveal-delay-2">
           <div class="svc-num">03</div>
           <div class="svc-icon svc-icon-3">✦</div>
           <div class="svc-title">3D Visualization</div>
-          <div class="svc-text">Our visualization team produces photorealistic renders and animations that communicate
-            the
-            full experiential quality of a design before it is built.</div>
-          <div class="svc-features">
-            <div class="svc-feat">Photorealistic still renders</div>
+          <div class="svc-text">Our visualization team produces photorealistic renders and animations that communicate the full experiential quality of a design before it is built.</div>
+          <div class="svc-features"><div class="svc-feat">Photorealistic still renders</div>
             <div class="svc-feat">Animated walkthroughs</div>
             <div class="svc-feat">Virtual reality experiences</div>
-            <div class="svc-feat">Design presentation decks</div>
-          </div>
+            <div class="svc-feat">Design presentation decks</div></div>
         </div>
         <div class="svc-card reveal reveal-delay-3">
           <div class="svc-num">04</div>
           <div class="svc-icon svc-icon-4">◈</div>
           <div class="svc-title">Space Renovation</div>
-          <div class="svc-text">We transform existing spaces with sensitivity to their history and potential —
-            uncovering
-            what is valuable and reinventing what can be better.</div>
-          <div class="svc-features">
-            <div class="svc-feat">Heritage building assessment</div>
+          <div class="svc-text">We transform existing spaces with sensitivity to their history and potential — uncovering what is valuable and reinventing what can be better.</div>
+          <div class="svc-features"><div class="svc-feat">Heritage building assessment</div>
             <div class="svc-feat">Adaptive reuse strategy</div>
             <div class="svc-feat">Full project management</div>
-            <div class="svc-feat">Contractor coordination</div>
-          </div>
+            <div class="svc-feat">Contractor coordination</div></div>
         </div>
       </div>
 
@@ -2936,7 +2856,7 @@
         <div class="footer-top">
           <div>
             <div class="footer-logo">architecture</div>
-            <p class="footer-tagline">Creating spaces that inspire since 2006.</p>
+            <p class="footer-tagline">Luxury architecture and interior design studio. Creating spaces that inspire since 2006.</p>
           </div>
           <div class="footer-col">
             <h4>Studio</h4>
@@ -2962,7 +2882,7 @@
             </ul>
           </div>
         </div>
-        <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio.</span></div>
+        <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio. All rights reserved.</span></div>
       </footer>
     </div>
 
@@ -3021,30 +2941,15 @@
           </div>
           <div class="form-group">
             <label>Service of Interest</label>
-            <select>
-              <option value="" disabled selected>Select a service</option>
-              <option>Interior Design</option>
-              <option>Architecture Planning</option>
-              <option>3D Visualization</option>
-              <option>Space Renovation</option>
-              <option>General Enquiry</option>
-            </select>
+            <select><option value="" disabled="" selected="">Select a service</option><option>Interior Design</option><option>Architecture Planning</option><option>3D Visualization</option><option>Space Renovation</option><option>General Enquiry</option></select>
           </div>
           <div class="form-group">
             <label>Project Budget</label>
-            <select>
-              <option value="" disabled selected>Estimated budget range</option>
-              <option>Under $50,000</option>
-              <option>$50,000 – $150,000</option>
-              <option>$150,000 – $500,000</option>
-              <option>$500,000 – $1M</option>
-              <option>Over $1M</option>
-            </select>
+            <select><option value="" disabled="" selected="">Estimated budget range</option><option>Under $50,000</option><option>$50,000 – $150,000</option><option>$150,000 – $500,000</option><option>$500,000 – $1M</option><option>Over $1M</option></select>
           </div>
           <div class="form-group">
             <label>Tell Us About Your Project</label>
-            <textarea
-              placeholder="Describe your vision, the space, and any specific aspirations you have..."></textarea>
+            <textarea placeholder="Describe your vision, the space, and any specific aspirations you have..."></textarea>
           </div>
           <button class="form-submit" onclick="submitForm()"><span>Send Message →</span></button>
           <div class="success-msg" id="successMsg">
@@ -3057,7 +2962,7 @@
         <div class="footer-top">
           <div>
             <div class="footer-logo">architecture</div>
-            <p class="footer-tagline">Creating spaces that inspire since 2006.</p>
+            <p class="footer-tagline">Luxury architecture and interior design studio. Creating spaces that inspire since 2006.</p>
           </div>
           <div class="footer-col">
             <h4>Studio</h4>
@@ -3083,7 +2988,7 @@
             </ul>
           </div>
         </div>
-        <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio.</span></div>
+        <div class="footer-bottom"><span class="footer-copy">© 2024 Architecture Studio. All rights reserved.</span></div>
       </footer>
     </div>
 
@@ -3092,7 +2997,7 @@
       <div class="modal-box">
 
         <span class="close-modal" onclick="closeProjectModal()">
-          &times;
+          ×
         </span>
 
         <div class="modal-left">
@@ -3213,17 +3118,24 @@
       }
 
       // ── Parallax hero ──
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const hero = document.querySelector('#page-home.active .hero');
-        if (hero) {
-          const scrolled = window.scrollY;
-          const orbs = document.querySelectorAll('.hero-bg-orb');
-          orbs.forEach((orb, i) => {
-            const speed = 0.1 + i * 0.05;
-            orb.style.transform = `translateY(${scrolled * speed}px)`;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const hero = document.querySelector('#page-home.active .hero');
+            if (hero) {
+              const scrolled = window.scrollY;
+              const orbs = document.querySelectorAll('.hero-bg-orb');
+              orbs.forEach((orb, i) => {
+                const speed = 0.1 + i * 0.05;
+                orb.style.transform = `translateY(${scrolled * speed}px)`;
+              });
+            }
+            ticking = false;
           });
+          ticking = true;
         }
-      });
+      }, { passive: true });
 
       // ── Init ──
       document.addEventListener('DOMContentLoaded', () => {
@@ -3243,11 +3155,9 @@
         let galleryHTML = "";
 
         images.forEach(img => {
-
           galleryHTML += `
-      <img src="${img}">
+      <img src="${img}" loading="lazy" decoding="async">
     `;
-
         });
 
         document.getElementById("modalGallery").innerHTML = galleryHTML;
@@ -3262,6 +3172,233 @@
     </script>
 
 
-</body>
 
-</html>
+
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCVmYkaUKr003oDDjZVja98HpTf9ByrH44",
+      authDomain: "sohanmali-77014.firebaseapp.com",
+      databaseURL: "https://sohanmali-77014-default-rtdb.firebaseio.com",
+      projectId: "sohanmali-77014",
+      storageBucket: "sohanmali-77014.firebasestorage.app",
+      messagingSenderId: "281655194324",
+      appId: "1:281655194324:web:05833d65971ebbd5580141"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    db.ref('website/content').on('value', (snapshot) => {
+      if (!snapshot.exists()) return;
+      const data = snapshot.val();
+      updateWebsiteDOM(data);
+    });
+
+    function updateWebsiteDOM(data) {
+      if(!data) return;
+      
+      // Nav
+      if(data.site) {
+        document.querySelector('.nav-logo').textContent = data.site.logo;
+        document.querySelector('.nav-cta').textContent = data.site.nav_cta;
+      }
+
+      // Home Hero
+      if(data.home?.hero) {
+        document.querySelector('.hero-badge').textContent = data.home.hero.badge;
+        document.querySelector('.hero-title').innerHTML = `${data.home.hero.title_line1}<br>That <span class="highlight-text">${data.home.hero.title_highlight}</span>`;
+        document.querySelector('.hero-sub').innerHTML = data.home.hero.services.map((s, i) => i < data.home.hero.services.length - 1 ? `${s} <span>·</span> ` : s).join('');
+        document.querySelector('.btn-primary span').textContent = data.home.hero.btn_primary;
+        document.querySelector('.btn-secondary').textContent = data.home.hero.btn_secondary;
+      }
+
+      // Home Stats
+      if(data.home?.stats) {
+        const statItems = document.querySelectorAll('#page-home .stat-item');
+        data.home.stats.forEach((stat, i) => {
+          if(statItems[i]) {
+            statItems[i].querySelector('.stat-num').innerHTML = stat.number;
+            statItems[i].querySelector('.stat-label').textContent = stat.label;
+          }
+        });
+      }
+
+      // Home Featured
+      if(data.home?.featured) {
+        document.querySelector('.featured .section-label').textContent = data.home.featured.label;
+        document.querySelector('.featured .section-title').innerHTML = `${data.home.featured.title_line1}<br><em>${data.home.featured.title_em}</em>`;
+        const featCards = document.querySelectorAll('.feat-card');
+        data.home.featured.cards.forEach((card, i) => {
+          if(featCards[i]) {
+            featCards[i].querySelector('.feat-card-cat').textContent = card.category;
+            featCards[i].querySelector('.feat-card-title').textContent = card.title;
+          }
+        });
+      }
+
+      // Home Philosophy
+      if(data.home?.philosophy) {
+        document.querySelector('.philosophy .section-label').textContent = data.home.philosophy.label;
+        document.querySelector('.philosophy .section-title').innerHTML = `${data.home.philosophy.title_line1}<br><em>${data.home.philosophy.title_em}</em>`;
+        document.querySelector('.philosophy-text').textContent = data.home.philosophy.text;
+      }
+
+      // Home Process
+      if(data.home?.process) {
+        document.querySelector('.process .section-label').textContent = data.home.process.label;
+        document.querySelector('.process .section-title').innerHTML = `${data.home.process.title_line1} <em>${data.home.process.title_em}</em>`;
+        const processSteps = document.querySelectorAll('.process-step');
+        data.home.process.steps.forEach((step, i) => {
+          if(processSteps[i]) {
+            processSteps[i].querySelector('.step-num').textContent = step.number;
+            processSteps[i].querySelector('.step-title').textContent = step.title;
+            processSteps[i].querySelector('.step-text').textContent = step.text;
+          }
+        });
+      }
+
+      // Home Testimonial
+      if(data.home?.testimonial) {
+        document.querySelector('.testimonial .section-label').textContent = data.home.testimonial.label;
+        document.querySelector('.testimonial-quote').textContent = `"${data.home.testimonial.quote}"`;
+        document.querySelector('.testimonial-author').textContent = data.home.testimonial.author;
+      }
+
+      // Projects Page
+      if(data.projects) {
+        const grid = document.querySelector('.projects-grid');
+        let projHtml = '';
+        const delays = ['', ' reveal-delay-1', ' reveal-delay-2'];
+        let customStyles = '';
+        
+        data.projects.forEach((proj, i) => {
+          const delayClass = delays[i % 3];
+          const thumbClass = `pv-proj-${proj.id}`;
+          customStyles += `.pv-proj-${proj.id} { background-image: url('${proj.thumbnail}'); background-size: cover; background-position: center; }\n`;
+          
+          const safeTitle = proj.title.replace(/'/g, "\\'");
+          const safeCat = proj.category.charAt(0).toUpperCase() + proj.category.slice(1);
+          const safeDesc = proj.description.replace(/'/g, "\\'");
+          const imagesJson = JSON.stringify(proj.images || []).replace(/"/g, "'");
+
+          projHtml += `
+            <div class="proj-card reveal${delayClass}" data-cat="${proj.category}">
+              <div class="proj-img">
+                <div class="proj-img-inner ${thumbClass}"></div>
+                <div class="proj-img-overlay" onclick="openProjectModal('${safeTitle}', '${safeCat}', '${safeDesc}', ${imagesJson})">
+                  <span class="proj-view">View Project</span>
+                </div>
+              </div>
+              <div class="proj-info">
+                <div class="proj-cat">${safeCat}</div>
+                <div class="proj-title">${proj.title}</div>
+              </div>
+            </div>`;
+        });
+        
+        if(grid) {
+          grid.innerHTML = projHtml;
+          // Dynamically inject styles for project thumbnails
+          let styleTag = document.getElementById('dynamic-proj-styles');
+          if(!styleTag) {
+            styleTag = document.createElement('style');
+            styleTag.id = 'dynamic-proj-styles';
+            document.head.appendChild(styleTag);
+          }
+          styleTag.innerHTML = customStyles;
+        }
+      }
+
+      // About
+      if(data.about) {
+        document.querySelector('#page-about .section-label').textContent = data.about.label;
+        document.querySelector('.about-lead').textContent = data.about.lead;
+        const aboutTexts = document.querySelectorAll('.about-text');
+        if(aboutTexts[0]) aboutTexts[0].textContent = data.about.text1;
+        if(aboutTexts[1]) aboutTexts[1].textContent = data.about.text2;
+        
+        const vals = document.querySelectorAll('.about-val');
+        (data.about.stats || []).forEach((stat, i) => {
+          if(vals[i]) {
+            vals[i].querySelector('.about-val-num').textContent = stat.number;
+            vals[i].querySelector('.about-val-label').textContent = stat.label;
+          }
+        });
+
+        const storySticky = document.querySelector('.about-story-sticky');
+        if(storySticky) {
+          storySticky.querySelector('.section-label').textContent = data.about.principles.label;
+          storySticky.querySelector('.section-title').innerHTML = `${data.about.principles.title_line1}<br><em>${data.about.principles.title_em}</em>`;
+        }
+      }
+
+      // Services
+      if(data.services) {
+        const svcHero = document.querySelector('.services-hero');
+        if(svcHero) {
+          svcHero.querySelector('.section-label').textContent = data.services.label;
+          svcHero.querySelector('.section-title').innerHTML = `${data.services.title_line1} <em>${data.services.title_em}</em>`;
+        }
+        
+        const svcCards = document.querySelectorAll('.svc-card');
+        (data.services.items || []).forEach((item, i) => {
+          if(svcCards[i]) {
+            svcCards[i].querySelector('.svc-num').textContent = item.number;
+            svcCards[i].querySelector('.svc-icon').textContent = item.icon;
+            svcCards[i].querySelector('.svc-title').textContent = item.title;
+            svcCards[i].querySelector('.svc-text').textContent = item.text;
+            const featContainer = svcCards[i].querySelector('.svc-features');
+            if(featContainer) {
+              featContainer.innerHTML = item.features.map(f => `<div class="svc-feat">${f}</div>`).join('');
+            }
+          }
+        });
+
+        const svcCta = document.querySelector('.services-cta');
+        if(svcCta && data.services.cta) {
+          svcCta.querySelector('.section-label').textContent = data.services.cta.label;
+          svcCta.querySelector('.section-title').innerHTML = `${data.services.cta.title_line1}<br>${data.services.cta.title_line2} <em>${data.services.cta.title_em}</em>`;
+        }
+      }
+
+      // Contact
+      if(data.contact) {
+        document.querySelector('#page-contact .section-label').textContent = data.contact.label;
+        document.querySelector('.contact-lead').textContent = data.contact.lead;
+        
+        const details = document.querySelectorAll('.contact-detail span');
+        if(details[0]) details[0].textContent = data.contact.email;
+        if(details[1]) details[1].textContent = data.contact.studios;
+        if(details[2]) details[2].textContent = data.contact.phone;
+
+        const selects = document.querySelectorAll('#page-contact select');
+        if(selects[0]) {
+          selects[0].innerHTML = '<option value="" disabled selected>Select a service</option>' + 
+            data.contact.service_options.map(opt => `<option>${opt}</option>`).join('');
+        }
+        if(selects[1]) {
+          selects[1].innerHTML = '<option value="" disabled selected>Estimated budget range</option>' + 
+            data.contact.budget_options.map(opt => `<option>${opt}</option>`).join('');
+        }
+      }
+
+      // Footer
+      if(data.footer) {
+        document.querySelectorAll('footer').forEach(footer => {
+          footer.querySelector('.footer-logo').textContent = data.footer.logo;
+          footer.querySelector('.footer-tagline').textContent = data.footer.tagline;
+          const copies = footer.querySelectorAll('.footer-copy');
+          if(copies[0]) copies[0].textContent = data.footer.copyright;
+          if(copies[1]) copies[1].textContent = data.footer.crafted;
+        });
+      }
+
+      // Re-initialize reveal animations for any new elements injected by Firebase
+      if (typeof initReveal === 'function') {
+        setTimeout(initReveal, 50); // slight delay to allow DOM to render
+      }
+    }
+  </script>
+</body></html>
