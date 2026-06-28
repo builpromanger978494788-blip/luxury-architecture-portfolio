@@ -3156,7 +3156,7 @@
 
         images.forEach(img => {
           galleryHTML += `
-      <img src="${img}" loading="lazy" decoding="async">
+      <img src="${img}">
     `;
         });
 
@@ -3398,6 +3398,24 @@
       // Re-initialize reveal animations for any new elements injected by Firebase
       if (typeof initReveal === 'function') {
         setTimeout(initReveal, 50); // slight delay to allow DOM to render
+      }
+
+      // Preload thumbnails and inner project images for instant loading
+      if (data.projects) {
+        setTimeout(() => {
+          data.projects.forEach(proj => {
+            if (proj.thumbnail) {
+              const th = new Image();
+              th.src = proj.thumbnail;
+            }
+            if (proj.images && Array.isArray(proj.images)) {
+              proj.images.forEach(imgUrl => {
+                const img = new Image();
+                img.src = imgUrl;
+              });
+            }
+          });
+        }, 100);
       }
     }
   </script>
