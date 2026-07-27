@@ -2281,6 +2281,64 @@
     
 
     /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* Project thumbnails (auto-generated) */
     .pv-proj-1 { background-image: url('images/homepage3.jpg'); background-size: cover; background-position: center; }
     .pv-proj-2 { background-image: url('images/homepage2.jpg'); background-size: cover; background-position: center; }
     .pv-proj-3 { background-image: url('ren/pw1.jpg'); background-size: cover; background-position: center; }
@@ -2820,25 +2878,6 @@
       </div>
     </section>
 
-    <div class="rekhatan-gallery">
-
-      <div class="rekhatan-item">
-        <img src="paint/p1.jpg">
-      </div>
-
-      <div class="rekhatan-item">
-        <img src="paint/p2.jpg">
-      </div>
-
-      <div class="rekhatan-item">
-        <img src="paint/p3.jpg">
-      </div>
-
-      <div class="rekhatan-item">
-        <img src="paint/p4.jpg">
-      </div>
-
-    </div>
 
     <footer>
       <div class="footer-top">
@@ -3148,39 +3187,17 @@
 
         const cards = document.querySelectorAll('.proj-card');
 
-        const gallery = document.querySelector('.rekhatan-gallery');
-
-        if (category === 'rekhatan') {
-
-          cards.forEach(card => {
+        cards.forEach(card => {
+          if (category === 'all') {
+            card.style.display = 'block';
+            card.classList.add('visible');
+          } else if (card.dataset.cat === category) {
+            card.style.display = 'block';
+            card.classList.add('visible');
+          } else {
             card.style.display = 'none';
-          });
-
-          gallery.style.display = 'block';
-
-        }
-
-        else {
-
-          gallery.style.display = 'none';
-
-          cards.forEach(card => {
-
-            if (category === 'all') {
-              card.style.display = 'block';
-            }
-
-            else if (card.dataset.cat === category) {
-              card.style.display = 'block';
-            }
-
-            else {
-              card.style.display = 'none';
-            }
-
-          });
-
-        }
+          }
+        });
 
       }
 
