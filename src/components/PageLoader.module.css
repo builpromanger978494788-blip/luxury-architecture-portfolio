@@ -1,0 +1,23 @@
+.loaderContainer {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-stone);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

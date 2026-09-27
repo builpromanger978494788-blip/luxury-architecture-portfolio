@@ -1,0 +1,133 @@
+.page {
+  padding-bottom: var(--space-16);
+}
+
+.headerSection {
+  padding: var(--space-12) 0 var(--space-8);
+}
+
+.filterSection {
+  margin-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filterScroll {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+.filterScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.filterBtn {
+  white-space: nowrap;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.filterBtn:hover,
+.filterBtn.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.gridSection {
+  min-height: 50vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.projectCard {
+  display: block;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--color-beige);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.projectCard:hover .image,
+.projectCard:focus-visible .image {
+  transform: scale(1.05);
+}
+
+.noImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-taupe);
+  background: var(--color-beige);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-6);
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: var(--color-white);
+  transition: opacity var(--transition-normal);
+}
+
+.category {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+  display: block;
+  opacity: 0.9;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.emptyState {
+  text-align: center;
+  padding: var(--space-12) 0;
+  color: var(--color-stone);
+}

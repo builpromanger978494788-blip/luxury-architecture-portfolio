@@ -1,0 +1,97 @@
+import { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { WebsiteContent } from '../types/content';
+import styles from './SiteHeader.module.css';
+
+interface SiteHeaderProps {
+  content: WebsiteContent;
+}
+
+export function SiteHeader({ content }: SiteHeaderProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [window.location.pathname]);
+
+  const navLinks = [
+    { name: 'Work', path: '/projects' },
+    { name: 'Studio', path: '/about' },
+    { name: 'Expertise', path: '/services' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  return (
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+      <div className={`container ${styles.container}`}>
+        <Link to="/" className={styles.logo} onClick={() => setIsOpen(false)}>
+          {content.site.logo}
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className={styles.desktopNav}>
+          {navLinks.map((link) => (
+            <NavLink 
+              key={link.path} 
+              to={link.path}
+              className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
+            >
+              {link.name}
+            </NavLink>
+          ))}
+          {content.site.nav_cta && (
+             <Link to="/contact" className={styles.ctaButton}>
+               {content.site.nav_cta}
+             </Link>
+          )}
+        </nav>
+
+        {/* Mobile Menu Toggle */}
+        <button 
+          className={styles.mobileToggle}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Nav */}
+      <div className={`${styles.mobileNav} ${isOpen ? styles.mobileNavOpen : ''}`}>
+        <nav className={styles.mobileNavContainer}>
+          {navLinks.map((link) => (
+            <NavLink 
+              key={link.path} 
+              to={link.path}
+              className={({ isActive }) => `${styles.mobileNavLink} ${isActive ? styles.active : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </NavLink>
+          ))}
+          {content.site.nav_cta && (
+             <Link 
+               to="/contact" 
+               className={`btn-primary ${styles.mobileCta}`}
+               onClick={() => setIsOpen(false)}
+             >
+               {content.site.nav_cta}
+             </Link>
+          )}
+        </nav>
+      </div>
+    </header>
+  );
+}

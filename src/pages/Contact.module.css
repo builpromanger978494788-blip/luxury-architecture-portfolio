@@ -1,0 +1,136 @@
+.contactSection {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+  }
+}
+
+.infoColumn {
+  padding-top: var(--space-4);
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-8);
+}
+
+.detailBlock .eyebrow {
+  margin-bottom: var(--space-2);
+}
+
+.link {
+  font-size: 1.125rem;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-stone);
+}
+
+.studios {
+  color: var(--color-stone);
+  line-height: 1.6;
+}
+.studios p {
+  margin-bottom: var(--space-4);
+}
+
+.formCard {
+  background: var(--color-white);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+@media (min-width: 768px) {
+  .formCard {
+    padding: var(--space-12);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+@media (min-width: 640px) {
+  .formRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  border-radius: 0;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--color-charcoal);
+  box-shadow: 0 0 0 1px var(--color-charcoal);
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper::after {
+  content: '';
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--color-charcoal);
+  pointer-events: none;
+}
+
+.select {
+  appearance: none;
+  padding-right: var(--space-12);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}

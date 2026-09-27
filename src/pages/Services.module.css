@@ -1,0 +1,121 @@
+.headerSection {
+  padding: var(--space-12) 0 var(--space-8);
+}
+
+.headerContent {
+  max-width: 48rem;
+}
+
+.servicesSection {
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+@media (min-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.serviceCard {
+  background: var(--color-white);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .serviceCard {
+    padding: var(--space-12);
+  }
+}
+
+.serviceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-8);
+}
+
+.serviceIcon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.serviceIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(0.2); /* Adjust based on actual icon colors */
+}
+
+.serviceNumber {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-beige);
+}
+
+.serviceText {
+  color: var(--color-stone);
+  margin-bottom: var(--space-8);
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0 0;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+}
+
+.featureList li {
+  position: relative;
+  padding-left: var(--space-4);
+  margin-bottom: var(--space-2);
+  color: var(--color-charcoal);
+  font-size: 0.9375rem;
+}
+
+.featureList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.ctaSection {
+  padding: var(--space-16) 0;
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 48rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.ctaContent .eyebrow {
+  color: var(--color-taupe);
+  margin-bottom: 0;
+}
+
+.ctaContent h2 {
+  color: var(--color-white);
+  margin-bottom: 0;
+}
+
+.ctaContent .lead {
+  color: var(--color-beige);
+  margin-bottom: var(--space-4);
+}

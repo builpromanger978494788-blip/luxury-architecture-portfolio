@@ -1,0 +1,117 @@
+.footer {
+  background: var(--color-charcoal);
+  color: var(--color-beige);
+  padding: var(--space-12) 0 var(--space-6) 0;
+  margin-top: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+@media (min-width: 1024px) {
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.brandInfo {
+  max-width: 24rem;
+}
+
+.logo {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+}
+
+.tagline {
+  color: var(--color-taupe);
+  font-size: 1.125rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-12);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.column h3 {
+  color: var(--color-taupe);
+  margin-bottom: var(--space-2);
+}
+
+.link {
+  color: var(--color-beige);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-white);
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  text-transform: capitalize;
+}
+
+.locations {
+  color: var(--color-beige);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.locations p {
+  margin-bottom: var(--space-2);
+}
+
+.bottomSection {
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+  text-align: center;
+  color: var(--color-taupe);
+  font-size: 0.875rem;
+}
+@media (min-width: 768px) {
+  .bottomSection {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.copyright, .crafted {
+  margin: 0;
+}
