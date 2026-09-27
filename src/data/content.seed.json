@@ -154,7 +154,11 @@
       },
       {
         "label": "Project Range",
-        "number": "100 Sq.ft shop to 10000 Sq.ft Commercial space."
+        "number": "10000 Sq.ft"
+      },
+      {
+        "label": "Cities Served",
+        "number": "25+"
       }
     ],
     "testimonial": {

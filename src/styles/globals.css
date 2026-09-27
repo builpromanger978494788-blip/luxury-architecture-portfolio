@@ -230,3 +230,63 @@ img {
 .principle-text { font-size: 0.85rem; line-height: 1.85; color: var(--warm-gray); }
 .services-description { font-size: 0.85rem; color: var(--warm-gray); margin-top: 16px; max-width: 480px; line-height: 1.8; }
 .content-fallback-notice { position: fixed; right: 16px; bottom: 16px; z-index: 10001; padding: 8px 12px; background: var(--deep); color: var(--cream); font-size: 0.7rem; letter-spacing: 0.08em; }
+
+/* Stats Strip Responsive Layout & Alignment */
+.page .stats-strip,
+.stats-strip {
+  display: grid !important;
+  grid-template-columns: repeat(var(--stat-count, 4), minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 48px 32px !important;
+}
+
+.page .stat-item,
+.stat-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-width: 0 !important;
+}
+
+.page .stat-num,
+.stat-num {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif) !important;
+  font-size: clamp(1.75rem, 2.6vw, 2.8rem) !important;
+  font-weight: 300 !important;
+  color: var(--deep, #1c1a17) !important;
+  line-height: 1.15 !important;
+  margin-bottom: 8px !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  letter-spacing: -0.02em !important;
+}
+
+.page .stat-label,
+.stat-label {
+  font-size: 0.65rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--taupe, #a39b94) !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 860px) {
+  .page .stats-strip,
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 36px 20px !important;
+    gap: 32px 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page .stat-num,
+  .stat-num {
+    font-size: 1.7rem !important;
+  }
+}
+

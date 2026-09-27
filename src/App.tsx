@@ -119,7 +119,14 @@ function App() {
           </div>
           <div className="hero-scroll"><span>Scroll</span><div className="scroll-line"></div></div>
         </section>
-        <div className="stats-strip">{home.stats.map((stat, index) => <div className={classes('stat-item', 'reveal', delay(index))} key={stat.number + stat.label}><div className="stat-num">{stat.number}</div><div className="stat-label">{stat.label}</div></div>)}</div>
+        <div className="stats-strip" style={{ '--stat-count': home.stats.length } as CSSProperties}>
+          {home.stats.map((stat, index) => (
+            <div className={classes('stat-item', 'reveal', delay(index))} key={stat.label + index}>
+              <div className="stat-num">{stat.number?.trim()}</div>
+              <div className="stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
         <section className="featured">
           <div className="featured-header"><div><p className="section-label reveal">{home.featured.label}</p><h2 className="section-title reveal reveal-delay-1">{home.featured.title_line1}<br /><em>{home.featured.title_em}</em></h2></div><a className="link-arrow reveal reveal-delay-2" onClick={() => navigate('projects')}>All Projects</a></div>
           <div className="featured-grid">{home.featured.cards.map((card, index) => <div className={classes('feat-card', index === 0 && 'span-col', 'reveal', delay(index))} key={card.title + index} onClick={() => navigate('projects')} role="button" tabIndex={0} onKeyDown={(event) => event.key === 'Enter' && navigate('projects')}><div className="feat-card-inner" style={imageStyle(card.image)}></div><div className="feat-card-overlay"></div><div className="feat-card-arrow">→</div><div className="feat-card-info"><div className="feat-card-cat">{card.category}</div><div className="feat-card-title">{card.title}</div></div></div>)}</div>
