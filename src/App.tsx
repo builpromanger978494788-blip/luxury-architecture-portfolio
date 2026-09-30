@@ -5,6 +5,8 @@ import { mountLegacyTheme } from './styles/legacy-theme';
 import type { Project, WebsiteContent } from './types/content';
 import { ProjectModal } from './components/ProjectModal';
 import { TestimonialSlider } from './components/TestimonialSlider';
+import { database } from './lib/firebase';
+import { ref, push, serverTimestamp } from 'firebase/database';
 type PageId = 'home' | 'projects' | 'about' | 'services' | 'contact';
 
 const pages: Array<{ id: PageId; label: string }> = [
@@ -88,7 +90,29 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function navClick(event: MouseEvent<HTMLAnchorElement>, nextPage: PageId) { event.preventDefault(); navigate(nextPage); }
-  function submitContact(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setSent(true); window.setTimeout(() => setSent(false), 6000); }
+  async function submitContact(event: FormEvent<HTMLFormElement>) { 
+    event.preventDefault(); 
+    const form = event.currentTarget;
+    const data = {
+      firstName: (form.querySelector('#first-name') as HTMLInputElement)?.value,
+      lastName: (form.querySelector('#last-name') as HTMLInputElement)?.value,
+      email: (form.querySelector('#email') as HTMLInputElement)?.value,
+      service: (form.querySelector('#service') as HTMLSelectElement)?.value,
+      budget: (form.querySelector('#budget') as HTMLSelectElement)?.value,
+      message: (form.querySelector('#message') as HTMLTextAreaElement)?.value,
+      createdAt: serverTimestamp()
+    };
+    if (database) {
+      try {
+        await push(ref(database, 'website/messages'), data);
+      } catch (e) {
+        console.error("Failed to send message", e);
+      }
+    }
+    setSent(true); 
+    form.reset();
+    window.setTimeout(() => setSent(false), 6000); 
+  }
 
   const categories = useMemo(() => content ? Array.from(new Set(content.projects.map((project) => project.category))).filter(Boolean) : [], [content]);
   const filteredProjects = content?.projects.filter((project) => activeCategory === 'all' || project.category === activeCategory) ?? [];
