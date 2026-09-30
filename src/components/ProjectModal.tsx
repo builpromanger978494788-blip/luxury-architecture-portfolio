@@ -12,14 +12,10 @@ interface ProjectModalProps {
 
 export function ProjectModal({ project, onClose, onInquire }: ProjectModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [dragOffset, setDragOffset] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-
-  // References for touch/mouse tracking
-  const startXRef = useRef<number | null>(null);
-  const startYRef = useRef<number | null>(null);
-  const isHorizontalSwipeRef = useRef<boolean | null>(null);
-  const currentDragRef = useRef(0);
+  const dragStartRef = useRef({ x: 0, y: 0 });
 
   // List of images
   const images = useMemo(() => {
@@ -42,6 +38,12 @@ export function ProjectModal({ project, onClose, onInquire }: ProjectModalProps)
       img.src = assetUrl(images[idx]);
     });
   }, [currentIndex, images, hasMultipleImages]);
+
+  // Reset zoom and pan when changing slides
+  useEffect(() => {
+    setZoomLevel(1);
+    setPan({ x: 0, y: 0 });
+  }, [currentIndex]);
 
   // Lock background scroll when modal is active
   useEffect(() => {
@@ -77,89 +79,44 @@ export function ProjectModal({ project, onClose, onInquire }: ProjectModalProps)
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextImage, prevImage, onClose]);
 
-  // Touch Handlers for mobile finger swiping
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (!hasMultipleImages) return;
-    startXRef.current = e.touches[0].clientX;
-    startYRef.current = e.touches[0].clientY;
-    isHorizontalSwipeRef.current = null;
-    currentDragRef.current = 0;
-    setIsDragging(true);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (startXRef.current === null || startYRef.current === null) return;
-    const currentX = e.touches[0].clientX;
-    const currentY = e.touches[0].clientY;
-    const deltaX = currentX - startXRef.current;
-    const deltaY = currentY - startYRef.current;
-
-    // Detect gesture orientation on first move
-    if (isHorizontalSwipeRef.current === null) {
-      if (Math.abs(deltaX) > 8 || Math.abs(deltaY) > 8) {
-        isHorizontalSwipeRef.current = Math.abs(deltaX) > Math.abs(deltaY);
-      }
-    }
-
-    if (isHorizontalSwipeRef.current) {
-      // Damped translation for tactile feedback
-      currentDragRef.current = deltaX;
-      setDragOffset(deltaX);
-    }
-  };
-
-  const handleTouchEnd = () => {
-    if (!hasMultipleImages) return;
-    const threshold = 40; // 40px swipe trigger
-    const deltaX = currentDragRef.current;
-
-    if (deltaX < -threshold) {
-      nextImage();
-    } else if (deltaX > threshold) {
-      prevImage();
-    }
-
-    // Reset drag state
-    setDragOffset(0);
-    setIsDragging(false);
-    startXRef.current = null;
-    startYRef.current = null;
-    isHorizontalSwipeRef.current = null;
-    currentDragRef.current = 0;
-  };
-
-  // Mouse Drag Handlers for desktop trackpad/mouse users
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (!hasMultipleImages) return;
-    // Don't drag if clicking buttons
-    if ((e.target as HTMLElement).closest('button')) return;
-    startXRef.current = e.clientX;
-    currentDragRef.current = 0;
+    if (zoomLevel <= 1) return;
     setIsDragging(true);
+    dragStartRef.current = {
+      x: e.clientX - pan.x,
+      y: e.clientY - pan.y
+    };
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (startXRef.current === null || !isDragging) return;
-    const deltaX = e.clientX - startXRef.current;
-    currentDragRef.current = deltaX;
-    setDragOffset(deltaX);
+    if (!isDragging || zoomLevel <= 1) return;
+    setPan({
+      x: e.clientX - dragStartRef.current.x,
+      y: e.clientY - dragStartRef.current.y
+    });
   };
 
   const handleMouseUp = () => {
-    if (!isDragging) return;
-    const threshold = 40;
-    const deltaX = currentDragRef.current;
-
-    if (deltaX < -threshold) {
-      nextImage();
-    } else if (deltaX > threshold) {
-      prevImage();
+    if (isDragging) {
+      setIsDragging(false);
     }
+  };
 
-    setDragOffset(0);
-    setIsDragging(false);
-    startXRef.current = null;
-    currentDragRef.current = 0;
+  const handleImageClick = (e: React.MouseEvent) => {
+    if (zoomLevel <= 1) {
+      nextImage();
+    }
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    setZoomLevel(prev => {
+      const newZoom = prev + (e.deltaY < 0 ? 0.2 : -0.2);
+      const clamped = Math.min(Math.max(1, newZoom), 5); // Allow zoom between 1x and 5x
+      if (clamped === 1) {
+        setPan({ x: 0, y: 0 });
+      }
+      return clamped;
+    });
   };
 
   const categoryName = (cat: string) => {
@@ -202,21 +159,20 @@ export function ProjectModal({ project, onClose, onInquire }: ProjectModalProps)
           {/* Main Slide Viewport */}
           <div
             className={styles.viewport}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onTouchCancel={handleTouchEnd}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
           >
             {images.length > 0 ? (
               <div
                 className={styles.imageWrapper}
+                onClick={handleImageClick}
+                onWheel={handleWheel}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
                 style={{
-                  transform: `translateX(${dragOffset}px)`,
-                  transition: isDragging ? 'none' : 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)',
+                  cursor: zoomLevel > 1 
+                    ? (isDragging ? 'grabbing' : 'grab') 
+                    : (hasMultipleImages ? 'pointer' : 'default'),
                 }}
               >
                 <img
@@ -225,6 +181,11 @@ export function ProjectModal({ project, onClose, onInquire }: ProjectModalProps)
                   alt={`${project.title} - photo ${currentIndex + 1}`}
                   className={styles.slideImage}
                   draggable={false}
+                  style={{
+                    transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoomLevel})`,
+                    transition: isDragging ? 'none' : 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)',
+                    transformOrigin: 'center center'
+                  }}
                 />
               </div>
             ) : (

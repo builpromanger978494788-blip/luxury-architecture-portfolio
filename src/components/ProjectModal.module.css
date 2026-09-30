@@ -131,12 +131,6 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  touch-action: pan-y;
-  cursor: grab;
-}
-
-.viewport:active {
-  cursor: grabbing;
 }
 
 .imageWrapper {
