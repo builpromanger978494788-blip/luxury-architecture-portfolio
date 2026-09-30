@@ -30,7 +30,7 @@ export interface WebsiteContent {
     featured: { label: string; title_line1: string; title_em: string; cards: Array<{ category: string; title: string; image: string }> };
     philosophy: { image?: string; label: string; title_line1: string; title_em: string; text: string };
     process: { label: string; title_line1: string; title_em: string; steps: Array<{ number: string; title: string; text: string }> };
-    testimonial: { label: string; quote: string; author: string };
+    testimonial: { label: string; items: Array<{ quote: string; author: string }> };
   };
   projects: Project[];
   about: {

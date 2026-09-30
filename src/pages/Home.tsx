@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { WebsiteContent } from '../types/content';
 import { assetUrl } from '../lib/asset-url';
@@ -9,6 +10,19 @@ interface HomeProps {
 
 export default function Home({ content }: HomeProps) {
   const { home } = content;
+  const t = home.testimonial as any;
+  const testimonials = home.testimonial.items || 
+    (t.quote ? [{ quote: t.quote, author: t.author }] : []);
+    
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    if (testimonials.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   return (
     <div className="animate-fade-in">
@@ -129,10 +143,33 @@ export default function Home({ content }: HomeProps) {
       <section className={styles.testimonialSection}>
         <div className={`container ${styles.testimonialContainer}`}>
           <span className="eyebrow">{home.testimonial.label}</span>
-          <blockquote className={styles.quote}>
-            "{home.testimonial.quote}"
-          </blockquote>
-          <cite className={styles.author}>&mdash; {home.testimonial.author}</cite>
+          
+          <div className={styles.testimonialSlider}>
+            {testimonials.map((t, idx) => (
+              <div 
+                key={idx} 
+                className={`${styles.testimonialSlide} ${idx === currentTestimonial ? styles.active : ''}`}
+              >
+                <blockquote className={styles.quote}>
+                  "{t.quote}"
+                </blockquote>
+                <cite className={styles.author}>{t.author}</cite>
+              </div>
+            ))}
+          </div>
+
+          {testimonials.length > 1 && (
+            <div className={styles.testimonialDots}>
+              {testimonials.map((_, idx) => (
+                <button 
+                  key={idx} 
+                  className={`${styles.dot} ${idx === currentTestimonial ? styles.activeDot : ''}`}
+                  onClick={() => setCurrentTestimonial(idx)}
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </div>

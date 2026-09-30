@@ -260,3 +260,60 @@
   color: var(--color-taupe);
   font-style: normal;
 }
+
+.testimonialSlider {
+  position: relative;
+  min-height: 250px; /* Adjust based on expected quote length */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.testimonialSlide {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.testimonialSlide.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  top: 0;
+  transform: translateY(0);
+}
+
+.testimonialDots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: var(--space-8);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-taupe);
+  border: none;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  opacity: 0.8;
+}
+
+.dot.activeDot {
+  background: var(--color-beige);
+  opacity: 1;
+  transform: scale(1.2);
+}

@@ -4,7 +4,7 @@ import { assetUrl } from './lib/asset-url';
 import { mountLegacyTheme } from './styles/legacy-theme';
 import type { Project, WebsiteContent } from './types/content';
 import { ProjectModal } from './components/ProjectModal';
-
+import { TestimonialSlider } from './components/TestimonialSlider';
 type PageId = 'home' | 'projects' | 'about' | 'services' | 'contact';
 
 const pages: Array<{ id: PageId; label: string }> = [
@@ -114,7 +114,14 @@ function App() {
           <div className="hero-content">
             <div className="hero-badge">{home.hero.badge}</div>
             <h1 className="hero-title">{home.hero.title_line1}<br />That <span className="highlight-text">{home.hero.title_highlight}</span></h1>
-            <p className="hero-sub">{home.hero.services.map((service, index) => <span key={service}>{service}{index < home.hero.services.length - 1 && <span> · </span>}</span>)}</p>
+            <p className="hero-sub">
+              {home.hero.services.map((service, index) => (
+                <span key={service} className="hero-service-item">
+                  {service}
+                  {index < home.hero.services.length - 1 && <span className="hero-sub-dot">·</span>}
+                </span>
+              ))}
+            </p>
             <div className="hero-btns"><button className="btn-primary" onClick={() => navigate('projects')}><span>{home.hero.btn_primary}</span></button><button className="btn-secondary" onClick={() => navigate('contact')}>{home.hero.btn_secondary}</button></div>
           </div>
           <div className="hero-scroll"><span>Scroll</span><div className="scroll-line"></div></div>
@@ -136,7 +143,7 @@ function App() {
           <div className="philosophy-visual reveal reveal-delay-2"><div className="phil-shape phil-shape-1"></div><div className="phil-shape phil-shape-2"></div><div className="phil-shape phil-shape-3"></div><div className="phil-line phil-line-1"></div><div className="phil-line phil-line-2"></div><div className="phil-label phil-label-1">Form</div><div className="phil-label phil-label-2">Function</div></div>
         </section>
         <section className="process"><p className="section-label reveal">{home.process.label}</p><h2 className="section-title reveal reveal-delay-1">{home.process.title_line1} <em>{home.process.title_em}</em></h2><div className="process-steps">{home.process.steps.map((step, index) => <div className={classes('process-step', 'reveal', delay(index))} key={step.number + step.title}>{index > 0 && <div className="step-dot"></div>}<div className="step-num">{step.number}</div><div className="step-title">{step.title}</div><div className="step-text">{step.text}</div></div>)}</div></section>
-        <section className="testimonial"><p className="section-label reveal" style={{ textAlign: 'center' }}>{home.testimonial.label}</p><blockquote className="testimonial-quote reveal reveal-delay-1">“{home.testimonial.quote}”</blockquote><p className="testimonial-author reveal reveal-delay-2">{home.testimonial.author}</p></section>
+        <TestimonialSlider testimonial={home.testimonial} />
         <Footer content={content} navigate={navigate} />
       </div>
 
