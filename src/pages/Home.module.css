@@ -106,7 +106,6 @@
 .featuredCard {
   display: block;
   text-decoration: none;
-  group: true;
 }
 
 .featuredImageWrapper {
