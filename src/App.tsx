@@ -207,7 +207,6 @@ function App() {
           }}
         />
       )}
-      {source === 'seed' && <div className="content-fallback-notice">Showing offline content</div>}
       {error && <div className="content-fallback-notice">Live update paused — showing saved content</div>}
     </>
   );
