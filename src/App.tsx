@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
 import { useWebsiteContent } from './hooks/useWebsiteContent';
 import { assetUrl } from './lib/asset-url';
-import { mountLegacyTheme } from './styles/legacy-theme';
+import './styles/legacy-theme.css';
 import type { Project, WebsiteContent } from './types/content';
 import { ProjectModal } from './components/ProjectModal';
 import { TestimonialSlider } from './components/TestimonialSlider';
@@ -62,7 +62,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState<Project>();
   const [sent, setSent] = useState(false);
 
-  useEffect(() => mountLegacyTheme(), []);
+  // Legacy CSS is now imported statically.
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'auto' }); }, []);
   useEffect(() => {
     const onPopState = () => setPage(pageFromPathname(window.location.pathname));
