@@ -265,7 +265,7 @@
       position: relative;
       overflow: hidden;
       padding: 0 48px;
-      background: linear-gradient(135deg, #faf8f5 0%, #f5f0e8 40%, #ede6da 100%);
+      background: #1a1a1a;
     }
 
     .hero-slider {
@@ -274,7 +274,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: 1; /* Covers orbs and grids */
     }
 
     .hero-slide {
@@ -287,10 +287,17 @@
       background-position: center;
       opacity: 0;
       transition: opacity 1.5s ease-in-out;
+      z-index: 0;
+    }
+
+    .hero-slide.prev {
+      opacity: 1;
+      z-index: 1;
     }
 
     .hero-slide.active {
       opacity: 1;
+      z-index: 2;
     }
 
     .hero-slider-overlay {
@@ -299,8 +306,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(250, 248, 245, 0.7); /* Light overlay to ensure text contrast */
-      z-index: 1;
+      background: rgba(0, 0, 0, 0.65); /* Dark overlay to make white text pop */
+      z-index: 3;
     }
 
     .hero-bg-orb {
@@ -375,7 +382,7 @@
 
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 10;
       max-width: 900px;
       text-align: center;
     }
@@ -387,10 +394,10 @@
       font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--taupe);
+      color: #ede6da;
       margin-bottom: 40px;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
       padding: 8px 20px;
       border-radius: 100px;
@@ -402,7 +409,7 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: var(--taupe);
+      background: #ede6da;
       display: block;
       animation: pulse 2s ease-in-out infinite;
     }
@@ -438,14 +445,15 @@
       font-size: clamp(3rem, 7vw, 6.5rem);
       font-weight: 300;
       line-height: 1.08;
-      color: var(--deep);
+      color: #ffffff;
       margin-bottom: 28px;
       animation: fadeSlideUp 1s var(--ease-out) 0.4s both;
       letter-spacing: -0.01em;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     .highlight-text {
-      color: var(--taupe);
+      color: #d1baa3; /* A warm beige to stand out against dark background */
       font-weight: 400;
     }
 
@@ -462,18 +470,24 @@
     }
 
     .hero-sub {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--warm-gray);
-      font-weight: 300;
+      color: #ffffff;
+      font-weight: 400;
       margin-bottom: 56px;
       animation: fadeSlideUp 1s var(--ease-out) 0.6s both;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
     }
 
-    .hero-sub span {
+    .hero-sub span.hero-sub-dot {
       margin: 0 12px;
-      color: var(--stone);
+      color: rgba(255, 255, 255, 0.7);
+      text-shadow: none;
+    }
+
+    .hero-sub span.hero-service-item {
+      color: #ffffff;
     }
 
     .hero-btns {
@@ -500,6 +514,11 @@
       overflow: hidden;
     }
 
+    .hero-btns .btn-primary {
+      background: #ffffff;
+      color: var(--deep);
+    }
+
     .btn-primary::before {
       content: '';
       position: absolute;
@@ -507,6 +526,10 @@
       background: var(--taupe);
       transform: translateX(-100%);
       transition: transform 0.4s var(--ease);
+    }
+
+    .hero-btns .btn-primary::before {
+      background: #e5dcca;
     }
 
     .btn-primary:hover::before {
@@ -520,27 +543,29 @@
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    .btn-secondary {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 16px 40px;
-      background: transparent;
-      color: var(--deep);
-      border: 1px solid var(--stone);
-      cursor: pointer;
-      transition: all 0.3s var(--ease);
+    .hero-btns .btn-secondary {
+      font-family: var(--font-body) !important;
+      font-size: 0.7rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      padding: 16px 40px !important;
+      background: rgba(0, 0, 0, 0.4) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.9) !important;
+      backdrop-filter: blur(8px) !important;
+      cursor: pointer !important;
+      transition: all 0.3s var(--ease) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
     }
 
-    .btn-secondary:hover {
-      border-color: var(--deep);
-      background: rgba(61, 53, 48, 0.04);
-      transform: translateY(-1px);
+    .hero-btns .btn-secondary:hover {
+      border-color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      transform: translateY(-1px) !important;
     }
 
     .hero-scroll {
@@ -553,19 +578,20 @@
       align-items: center;
       gap: 8px;
       animation: fadeSlideUp 1s var(--ease-out) 1.2s both;
+      z-index: 10;
     }
 
     .hero-scroll span {
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--stone);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .scroll-line {
       width: 1px;
       height: 48px;
-      background: linear-gradient(to bottom, var(--stone), transparent);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
       animation: scrollAnim 2s ease-in-out infinite;
     }
 

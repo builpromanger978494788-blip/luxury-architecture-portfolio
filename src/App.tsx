@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
+import { useEffect, useMemo, useState, useRef, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
 import { useWebsiteContent } from './hooks/useWebsiteContent';
 import { assetUrl } from './lib/asset-url';
 import './styles/legacy-theme.css';
@@ -7,6 +7,7 @@ import { ProjectModal } from './components/ProjectModal';
 import { TestimonialSlider } from './components/TestimonialSlider';
 import { database } from './lib/firebase';
 import { ref, push, serverTimestamp } from 'firebase/database';
+import seedContent from './data/content.seed.json';
 type PageId = 'home' | 'projects' | 'about' | 'services' | 'contact';
 
 const pages: Array<{ id: PageId; label: string }> = [
@@ -54,27 +55,72 @@ function Footer({ content, navigate }: { content: WebsiteContent; navigate: (pag
 }
 
 function HeroSlider({ images }: { images?: string[] }) {
+  const validImages = images?.filter(img => img && img.trim() !== '') || [];
+  
+  // If user has uploaded/configured images, use only them. Otherwise fall back to default seed images.
+  const finalImages = validImages.length > 0 
+    ? validImages 
+    : ((seedContent as any).home?.hero?.sliderImages || []);
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(-1);
+
+  const lengthRef = useRef(finalImages.length);
+  lengthRef.current = finalImages.length;
+  
+  const currentIndexRef = useRef(currentIndex);
+  currentIndexRef.current = currentIndex;
 
   useEffect(() => {
-    if (!images || images.length <= 1) return;
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // changes every 3 seconds smoothly
-    return () => clearInterval(interval);
-  }, [images]);
+    // Reset index if image list length changes and currentIndex is out of bounds
+    if (currentIndex >= finalImages.length) {
+      setCurrentIndex(0);
+    }
+  }, [finalImages.length]);
 
-  if (!images || images.length === 0) return null;
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
+    const nextSlide = () => {
+      const currentLength = lengthRef.current;
+      const currentIdx = currentIndexRef.current;
+      
+      if (currentLength > 1) {
+        setCurrentIndex((prev) => {
+          setPrevIndex(prev);
+          return (prev + 1) % currentLength;
+        });
+        
+        const isNextFirst = (currentIdx + 1) % currentLength === 0;
+        const delay = isNextFirst ? 1200 : 2500;
+        timeoutId = setTimeout(nextSlide, delay);
+      }
+    };
+
+    if (finalImages.length > 1) {
+      timeoutId = setTimeout(nextSlide, 1200);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [finalImages.length]);
+
+  if (finalImages.length === 0) return null;
 
   return (
     <div className="hero-slider">
-      {images.map((img, index) => (
-        <div
-          key={index}
-          className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
-          style={{ backgroundImage: `url(${img})` }}
-        />
-      ))}
+      {finalImages.map((img, index) => {
+        let className = 'hero-slide';
+        if (index === currentIndex) className += ' active';
+        else if (index === prevIndex) className += ' prev';
+        
+        return (
+          <div
+            key={index}
+            className={className}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        );
+      })}
       <div className="hero-slider-overlay"></div>
     </div>
   );
@@ -160,7 +206,7 @@ function App() {
 
       <div className={classes('page', page === 'home' && 'active')} id="page-home">
         <section className="hero">
-          <HeroSlider images={home.hero.sliderImages} />
+          <HeroSlider images={home.hero.sliderImages || (seedContent as any).home.hero.sliderImages} />
           <div className="hero-bg-orb hero-bg-orb-1"></div><div className="hero-bg-orb hero-bg-orb-2"></div><div className="hero-bg-orb hero-bg-orb-3"></div><div className="hero-grid-lines"></div>
           <div className="hero-content">
             <div className="hero-badge">{home.hero.badge}</div>

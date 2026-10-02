@@ -293,8 +293,8 @@ img {
 /* Hero Services Subtitle - Refined darker contrast */
 .page .hero-sub,
 .hero-sub {
-  color: #4a4239 !important;
-  font-weight: 500 !important;
+  color: #ffffff !important;
+  font-weight: 400 !important;
   font-size: 0.85rem !important;
   letter-spacing: 0.22em !important;
   text-transform: uppercase !important;
@@ -303,12 +303,13 @@ img {
   justify-content: center !important;
   align-items: center !important;
   margin-bottom: 52px !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6) !important;
 }
 
 .page .hero-sub .hero-service-item,
 .hero-sub .hero-service-item {
-  color: #4a4239 !important;
-  font-weight: 500 !important;
+  color: #ffffff !important;
+  font-weight: 400 !important;
   display: inline-flex !important;
   align-items: center !important;
 }
@@ -317,10 +318,11 @@ img {
 .hero-sub .hero-sub-dot,
 .page .hero-sub span span,
 .hero-sub span span {
-  color: #8c8275 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   margin: 0 14px !important;
   font-weight: 400 !important;
   display: inline-block !important;
+  text-shadow: none !important;
 }
 
 /* Testimonial Section — Luxury Dark Beige Background & Rounded Partition Box */
