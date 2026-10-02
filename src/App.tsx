@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState, useRef, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
 import { useWebsiteContent } from './hooks/useWebsiteContent';
 import { assetUrl } from './lib/asset-url';
-import './styles/legacy-theme.css';
 import type { Project, WebsiteContent } from './types/content';
 import { ProjectModal } from './components/ProjectModal';
 import { TestimonialSlider } from './components/TestimonialSlider';
@@ -108,7 +107,7 @@ function HeroSlider({ images }: { images?: string[] }) {
 
   return (
     <div className="hero-slider">
-      {finalImages.map((img, index) => {
+      {finalImages.map((img: string, index: number) => {
         let className = 'hero-slide';
         if (index === currentIndex) className += ' active';
         else if (index === prevIndex) className += ' prev';
