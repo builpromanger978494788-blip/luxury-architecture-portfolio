@@ -53,6 +53,32 @@ function Footer({ content, navigate }: { content: WebsiteContent; navigate: (pag
   );
 }
 
+function HeroSlider({ images }: { images?: string[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000); // changes every 3 seconds smoothly
+    return () => clearInterval(interval);
+  }, [images]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <div className="hero-slider">
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
+          style={{ backgroundImage: `url(${img})` }}
+        />
+      ))}
+      <div className="hero-slider-overlay"></div>
+    </div>
+  );
+}
 
 function App() {
   const { content, loading, source, error } = useWebsiteContent();
@@ -134,6 +160,7 @@ function App() {
 
       <div className={classes('page', page === 'home' && 'active')} id="page-home">
         <section className="hero">
+          <HeroSlider images={home.hero.sliderImages} />
           <div className="hero-bg-orb hero-bg-orb-1"></div><div className="hero-bg-orb hero-bg-orb-2"></div><div className="hero-bg-orb hero-bg-orb-3"></div><div className="hero-grid-lines"></div>
           <div className="hero-content">
             <div className="hero-badge">{home.hero.badge}</div>
