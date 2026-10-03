@@ -501,3 +501,90 @@
     gap: 12px;
   }
 }
+
+/* -----------------------------------------------
+   FULLSCREEN VIEWER
+-------------------------------------------------- */
+.fullscreenOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.closeFullscreenBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 20010;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.closeFullscreenBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.fullscreenImageWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fullscreenImage {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  transform-origin: center center;
+  user-select: none;
+}
+
+.fullscreenCounter {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* Update Nav buttons in fullscreen */
+.fullscreenNavBtn {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
+}
+
+.fullscreenNavBtn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
