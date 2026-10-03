@@ -70,31 +70,6 @@ export default function About({ content }: AboutProps) {
           </div>
         </div>
       </section>
-
-      {about.team && about.team.length > 0 && (
-        <section className={styles.teamSection}>
-          <div className="container">
-            <div className={styles.teamHeader}>
-              <span className="eyebrow">Our Team</span>
-              <h2 className="text-display-3">
-                The People <span className="text-em">Behind It All</span>
-              </h2>
-            </div>
-            
-            <div className={styles.teamGrid}>
-              {about.team.map((member, idx) => (
-                <div key={idx} className={styles.teamCard}>
-                  <div className={styles.teamImageWrapper}>
-                    <img src={assetUrl(member.image)} alt={member.name} className={styles.teamImage} loading="lazy" />
-                  </div>
-                  <h3 className={styles.teamName}>{member.name}</h3>
-                  <div className={styles.teamRole}>{member.role}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
     </div>
   );
 }

@@ -252,6 +252,88 @@ function App() {
       <div className={classes('page', page === 'about' && 'active')} id="page-about">
         <div className="about-hero"><div className="about-hero-visual reveal" style={imageStyle(about.image)}><div className="about-visual-lines"></div></div><div><p className="section-label reveal">{about.label}</p><p className="about-lead reveal reveal-delay-1">{about.lead}</p><p className="about-text reveal reveal-delay-2">{about.text1}</p><p className="about-text reveal reveal-delay-3">{about.text2}</p><div className="about-values reveal reveal-delay-4">{about.stats.map((stat) => <div className="about-val" key={stat.number + stat.label}><div className="about-val-num">{stat.number}</div><div className="about-val-label">{stat.label}</div></div>)}</div></div></div>
         <section className="about-story"><div className="about-story-grid"><div className="about-story-sticky"><p className="section-label reveal">{about.principles.label}</p><h2 className="section-title reveal reveal-delay-1">{about.principles.title_line1}<br /><em>{about.principles.title_em}</em></h2></div><div>{about.principles.items.map((principle, index) => <div style={{ marginBottom: 48 }} className={classes('reveal', delay(index))} key={principle.title}><div className="principle-title">{principle.title}</div><p className="principle-text">{principle.text}</p></div>)}</div></div></section>
+
+        {(about.founder || (seedContent as any).about?.founder) && (() => {
+          const founder = about.founder || (seedContent as any).about?.founder;
+          return (
+            <section className="about-founder">
+              <div className="about-founder-inner">
+                <div className="about-founder-visual reveal">
+                  <div className="about-founder-frame">
+                    <div className="about-founder-img" style={imageStyle(founder.image)}></div>
+                    <div className="founder-badge-pill">
+                      <span className="founder-badge-dot"></span>
+                      <span>Principal Architect</span>
+                    </div>
+                  </div>
+                  <div className="founder-bg-geometry"></div>
+                </div>
+                <div className="about-founder-content">
+                  <p className="section-label reveal">Leadership &amp; Vision</p>
+                  <h2 className="founder-name reveal reveal-delay-1">{founder.name}</h2>
+                  <div className="founder-title-wrap reveal reveal-delay-1">
+                    <span className="founder-role">{founder.role}</span>
+                    {founder.credentials && <span className="founder-credentials"> · {founder.credentials}</span>}
+                  </div>
+                  {founder.quote && (
+                    <blockquote className="founder-quote reveal reveal-delay-2">
+                      <span className="quote-mark">“</span>
+                      <p>{founder.quote}</p>
+                    </blockquote>
+                  )}
+                  <p className="founder-bio reveal reveal-delay-3">{founder.bio}</p>
+                  <div className="founder-hallmarks reveal reveal-delay-4">
+                    <div className="hallmark-item">
+                      <span className="hallmark-title">Direct Studio Involvement</span>
+                      <span className="hallmark-desc">Every commission is personally reviewed and guided from initial sketch to final site execution.</span>
+                    </div>
+                    <div className="hallmark-item">
+                      <span className="hallmark-title">Contextual Craft</span>
+                      <span className="hallmark-desc">Honoring regional material histories while crafting contemporary spatial poetics.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })()}
+
+        {(() => {
+          const team = about.team || (seedContent as any).about?.team;
+          if (!team || !team.members || team.members.length === 0) return null;
+          return (
+            <section className="about-team">
+              <div className="team-header">
+                <p className="section-label reveal">{team.label || 'The Studio'}</p>
+                <h2 className="section-title reveal reveal-delay-1">
+                  {team.title_line1 || 'Minds Behind the'} <em>{team.title_em || 'Architecture'}</em>
+                </h2>
+                {team.description && (
+                  <p className="team-intro reveal reveal-delay-2">{team.description}</p>
+                )}
+              </div>
+              <div className="team-grid">
+                {team.members.map((member: any, index: number) => (
+                  <div className={classes('team-card', 'reveal', delay(index % 4))} key={member.name + index}>
+                    <div className="team-photo" style={imageStyle(member.image)}>
+                      <div className="team-photo-pattern"></div>
+                      <div className="team-photo-overlay"></div>
+                      {member.experience && (
+                        <span className="team-exp-badge">{member.experience}</span>
+                      )}
+                    </div>
+                    <div className="team-info">
+                      <div className="team-name">{member.name}</div>
+                      <div className="team-role">{member.role}</div>
+                      {member.bio && <p className="team-bio">{member.bio}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })()}
+
         <Footer content={content} navigate={navigate} />
       </div>
 

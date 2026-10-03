@@ -22,6 +22,23 @@ export interface Service {
   text: string;
   features: string[];
 }
+export interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+  bio?: string;
+  experience?: string;
+}
+
+export interface FounderInfo {
+  name: string;
+  role: string;
+  credentials?: string;
+  image: string;
+  bio: string;
+  quote?: string;
+}
+
 export interface WebsiteContent {
   site: { logo: string; nav_cta: string };
   home: {
@@ -41,7 +58,14 @@ export interface WebsiteContent {
     text2: string;
     stats: Stat[];
     principles: { label: string; title_line1: string; title_em: string; items: Array<{ title: string; text: string }> };
-    team?: Array<{ image: string; name: string; role: string }>;
+    founder?: FounderInfo;
+    team?: {
+      label?: string;
+      title_line1?: string;
+      title_em?: string;
+      description?: string;
+      members: TeamMember[];
+    };
   };
   services: {
     label: string;
