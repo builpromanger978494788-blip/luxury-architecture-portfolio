@@ -41,6 +41,7 @@ export interface WebsiteContent {
     text2: string;
     stats: Stat[];
     principles: { label: string; title_line1: string; title_em: string; items: Array<{ title: string; text: string }> };
+    team?: Array<{ image: string; name: string; role: string }>;
   };
   services: {
     label: string;

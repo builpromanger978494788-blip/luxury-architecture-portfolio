@@ -37,7 +37,24 @@
       }
     ],
     "text1": "Architecture Studio was founded in 2006 with a singular conviction: that the spaces we inhabit shape who we become. From our studios in New York, Oslo, and Milan, we've spent nearly two decades translating this belief into homes, towers, and interiors that endure.",
-    "text2": "Our practice is built on deep collaboration — with clients, with craftspeople, with the contexts in which we work. We listen before we design, and we design before we draw."
+    "text2": "Our practice is built on deep collaboration — with clients, with craftspeople, with the contexts in which we work. We listen before we design, and we design before we draw.",
+    "team": [
+      {
+        "image": "images/homepage1.jpg",
+        "name": "Jane Doe",
+        "role": "Founder & Principal Architect"
+      },
+      {
+        "image": "images/homepage2.jpg",
+        "name": "John Smith",
+        "role": "Senior Interior Designer"
+      },
+      {
+        "image": "images/homepage3.jpg",
+        "name": "Emily Chen",
+        "role": "Lead Project Manager"
+      }
+    ]
   },
   "contact": {
     "budget_options": [
