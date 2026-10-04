@@ -40,7 +40,7 @@ function Footer({ content, navigate }: { content: WebsiteContent; navigate: (pag
   return (
     <footer>
       <div className="footer-top">
-        <div><div className="footer-logo">{footer.logo}</div><p className="footer-tagline">{footer.tagline}</p></div>
+        <div><div className="footer-logo" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}><img src="/logo.svg" alt="Architecture Logo" style={{ height: '48px', width: '48px', objectFit: 'contain', backgroundColor: 'white', borderRadius: '4px', padding: '4px' }} /><span>{footer.logo}</span></div><p className="footer-tagline">{footer.tagline}</p></div>
         <div className="footer-col">
           <h4>Studio</h4>
           <ul>{pages.filter((item) => item.id !== 'home').map((item) => <li key={item.id} role="button" tabIndex={0} onClick={() => navigate(item.id)} onKeyDown={(event) => event.key === 'Enter' && navigate(item.id)}>{item.label}</li>)}</ul>
@@ -193,7 +193,10 @@ function App() {
   return (
     <>
       <nav id="mainNav">
-        <a className="nav-logo" href="/" onClick={(event) => navClick(event, 'home')}>{site.logo}</a>
+        <a className="nav-logo" href="/" onClick={(event) => navClick(event, 'home')} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img src="/logo.svg" alt="Architecture Logo" style={{ height: '32px', width: '32px', objectFit: 'contain', backgroundColor: 'white', borderRadius: '4px', padding: '4px' }} />
+          <span>{site.logo}</span>
+        </a>
         <ul className="nav-links">{pages.map((item) => <li key={item.id}><a href={item.id === 'home' ? '/' : '/' + item.id} onClick={(event) => navClick(event, item.id)} className={page === item.id ? 'active' : ''}>{item.label}</a></li>)}</ul>
         <button className="nav-cta" onClick={() => navigate('contact')}>{site.nav_cta}</button>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMobileMenuOpen(true)}><span></span><span></span><span></span></button>
