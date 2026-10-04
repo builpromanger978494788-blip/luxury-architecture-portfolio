@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Outer Box -->
+  <rect x="2" y="2" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" />
+  
+  <!-- Diagonals and Cross -->
+  <line x1="2" y1="2" x2="98" y2="98" stroke="currentColor" stroke-width="1.5" />
+  <line x1="2" y1="98" x2="98" y2="2" stroke="currentColor" stroke-width="1.5" />
+  <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" stroke-width="1.5" />
+  <line x1="2" y1="50" x2="98" y2="50" stroke="currentColor" stroke-width="1.5" />
+
+  <!-- Corner Circles -->
+  <!-- Top Left -->
+  <circle cx="15" cy="15" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="15" cy="15" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="15" cy="15" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  
+  <!-- Top Right -->
+  <circle cx="85" cy="15" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="85" cy="15" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="85" cy="15" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  
+  <!-- Bottom Left -->
+  <circle cx="15" cy="85" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="15" cy="85" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="15" cy="85" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  
+  <!-- Bottom Right -->
+  <circle cx="85" cy="85" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="85" cy="85" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="85" cy="85" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+
+  <!-- Petals -->
+  <g fill="none" stroke="currentColor" stroke-width="2">
+    <!-- N -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" />
+    <!-- NE -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" transform="rotate(45 50 50)" />
+    <!-- E -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" transform="rotate(90 50 50)" />
+    <!-- SE -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" transform="rotate(135 50 50)" />
+    <!-- S -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" transform="rotate(180 50 50)" />
+    <!-- SW -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" transform="rotate(225 50 50)" />
+    <!-- W -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" transform="rotate(270 50 50)" />
+    <!-- NW -->
+    <path d="M 50 50 Q 28 35 50 2 Q 72 35 50 50" transform="rotate(315 50 50)" />
+  </g>
+</svg>

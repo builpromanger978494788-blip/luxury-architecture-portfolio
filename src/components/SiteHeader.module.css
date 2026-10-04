@@ -31,6 +31,16 @@
   text-decoration: none;
   letter-spacing: 0.05em;
   z-index: calc(var(--z-header) + 2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImage {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  color: var(--color-text-heading);
 }
 
 .desktopNav {

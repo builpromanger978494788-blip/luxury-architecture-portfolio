@@ -36,7 +36,8 @@ export function SiteHeader({ content }: SiteHeaderProps) {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.container}`}>
         <Link to="/" className={styles.logo} onClick={() => setIsOpen(false)}>
-          {content.site.logo}
+          <img src="/logo.svg" alt="Architecture Logo" className={styles.logoImage} />
+          <span>{content.site.logo}</span>
         </Link>
 
         {/* Desktop Nav */}

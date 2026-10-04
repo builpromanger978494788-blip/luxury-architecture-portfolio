@@ -14,7 +14,10 @@ export function SiteFooter({ content }: SiteFooterProps) {
       <div className={`container ${styles.container}`}>
         <div className={styles.topSection}>
           <div className={styles.brandInfo}>
-            <Link to="/" className={styles.logo}>{footer.logo}</Link>
+            <Link to="/" className={styles.logo}>
+              <img src="/logo.svg" alt="Architecture Logo" className={styles.logoImage} />
+              <span>{footer.logo}</span>
+            </Link>
             <p className={styles.tagline}>{footer.tagline}</p>
           </div>
           
