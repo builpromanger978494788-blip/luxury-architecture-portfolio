@@ -40,7 +40,7 @@ function Footer({ content, navigate }: { content: WebsiteContent; navigate: (pag
   return (
     <footer>
       <div className="footer-top">
-        <div><div className="footer-logo" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}><img src="/client-logo.png" alt="Architecture Logo" style={{ height: '64px', width: '64px', objectFit: 'cover', backgroundColor: 'white', borderRadius: '12px', padding: '4px' }} /><span>{footer.logo}</span></div><p className="footer-tagline">{footer.tagline}</p></div>
+        <div><div className="footer-logo" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}><img src="/final-logo.jpg" alt="Architecture Logo" style={{ height: '32px', width: '32px', objectFit: 'cover', backgroundColor: 'white', borderRadius: '4px' }} /><span>{footer.logo}</span></div><p className="footer-tagline">{footer.tagline}</p></div>
         <div className="footer-col">
           <h4>Studio</h4>
           <ul>{pages.filter((item) => item.id !== 'home').map((item) => <li key={item.id} role="button" tabIndex={0} onClick={() => navigate(item.id)} onKeyDown={(event) => event.key === 'Enter' && navigate(item.id)}>{item.label}</li>)}</ul>
@@ -194,7 +194,7 @@ function App() {
     <>
       <nav id="mainNav">
         <a className="nav-logo" href="/" onClick={(event) => navClick(event, 'home')} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <img src="/client-logo.png" alt="Architecture Logo" style={{ height: '64px', width: '64px', objectFit: 'cover', backgroundColor: 'white', borderRadius: '12px', padding: '4px' }} />
+          <img src="/final-logo.jpg" alt="Architecture Logo" style={{ height: '32px', width: '32px', objectFit: 'cover', backgroundColor: 'white', borderRadius: '4px' }} />
           <span>{site.logo}</span>
         </a>
         <ul className="nav-links">{pages.map((item) => <li key={item.id}><a href={item.id === 'home' ? '/' : '/' + item.id} onClick={(event) => navClick(event, item.id)} className={page === item.id ? 'active' : ''}>{item.label}</a></li>)}</ul>

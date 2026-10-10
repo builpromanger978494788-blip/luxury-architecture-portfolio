@@ -7,9 +7,10 @@
     <meta name="description" content="Architecture Sohan Mali" />
     <title>Architecture Sohan Mali</title>
     <link rel="icon" type="image/jpeg" href="/final-logo.jpg" />
+    <script type="module" crossorigin src="/assets/index-DzKu8ptA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CC5nkCtn.css">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

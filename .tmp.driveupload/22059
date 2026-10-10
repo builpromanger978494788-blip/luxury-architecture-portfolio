@@ -1,0 +1,22 @@
+0000000000000000000000000000000000000000 bff25bd12299f0839bf73f17c72ce1ff1305cd3f Gulesh Patel <guleshpatel@gmail.com> 1790486728 +0530	commit (initial): Upgrade Sohan Mali website with modern React, slider modal & responsive UI
+bff25bd12299f0839bf73f17c72ce1ff1305cd3f 6292faf15dd47f83f84822171d65f38e86b43739 Gulesh Patel <guleshpatel@gmail.com> 1790488139 +0530	commit: Fix stats strip alignment, add Cities Served, and configure Firebase production fallback
+6292faf15dd47f83f84822171d65f38e86b43739 3b221d51b9beb6a758323b67c2813b9fa96e3939 Gulesh Patel <guleshpatel@gmail.com> 1790491025 +0530	commit: Update browser tab title to Architecture — Luxury Design Studio
+3b221d51b9beb6a758323b67c2813b9fa96e3939 976f0ddd9e91d2ee0f67de7e6f634cebf6718224 Gulesh Patel <guleshpatel@gmail.com> 1790791641 +0530	commit: Update Client Words section with multiple clients and smooth animation
+976f0ddd9e91d2ee0f67de7e6f634cebf6718224 c36f65f413d6462a00e6f82353b0cfa3ab914f9b Gulesh Patel <guleshpatel@gmail.com> 1790791994 +0530	commit: Add architecture favicon
+c36f65f413d6462a00e6f82353b0cfa3ab914f9b 9efd30f2c75b63bdb0a3f77ae092e1afbc152205 Gulesh Patel <guleshpatel@gmail.com> 1790793111 +0530	commit: Update project modal: remove drag, add panning when zoomed
+9efd30f2c75b63bdb0a3f77ae092e1afbc152205 4b03eff528e73d6c2e18befa9680ead008daedfd Gulesh Patel <guleshpatel@gmail.com> 1790795975 +0530	commit: Update contact form to submit data to Firebase RTDB
+4b03eff528e73d6c2e18befa9680ead008daedfd 8a78372a8e535793f68234ad2ab68331e17b147e Gulesh Patel <guleshpatel@gmail.com> 1790886327 +0530	commit: Fixed CSS error and removed initial loading screen for instant UI load
+8a78372a8e535793f68234ad2ab68331e17b147e 46ed18715f70c9158acb59784b0201e149720432 Gulesh Patel <guleshpatel@gmail.com> 1790886946 +0530	commit: Add vercel.json to fix 404 on sub-routes for SPA
+46ed18715f70c9158acb59784b0201e149720432 7a6bf1f20aec23e8853d3f1c9638f4142e5b4241 Gulesh Patel <guleshpatel@gmail.com> 1790917674 +0530	commit: Fix FOUC/right-shift glitch by using statically imported legacy CSS
+7a6bf1f20aec23e8853d3f1c9638f4142e5b4241 8c38910b367a2cfa38bc805b63f5ddd9555439f8 Gulesh Patel <guleshpatel@gmail.com> 1790918190 +0530	commit: Remove offline content banner
+8c38910b367a2cfa38bc805b63f5ddd9555439f8 c5bfb5660d99309d174b461c72180e0d3f1355a8 Gulesh Patel <guleshpatel@gmail.com> 1790960977 +0530	commit: feat: Add hero slider to homepage
+c5bfb5660d99309d174b461c72180e0d3f1355a8 6a66c708109d887ce6beb39895b9f7d80265a422 Gulesh Patel <guleshpatel@gmail.com> 1790967825 +0530	commit: feat: enhance hero slider image management and fix hero text visibility
+6a66c708109d887ce6beb39895b9f7d80265a422 7be96b3acfdb3e8fdabd06a72a10eb1e8799c165 Gulesh Patel <guleshpatel@gmail.com> 1790970151 +0530	commit: fix(prod): fix production build typescript types and dark hero theme stylesheet precedence
+7be96b3acfdb3e8fdabd06a72a10eb1e8799c165 bded9a8e8e27f1f6a52ccf4d94a0b91ff56385ba Gulesh Patel <guleshpatel@gmail.com> 1791044630 +0530	commit: Add About page team section UI and dummy data
+bded9a8e8e27f1f6a52ccf4d94a0b91ff56385ba 9143c571f29821e6adc31ead70bb43a064d07b69 Gulesh Patel <guleshpatel@gmail.com> 1791048701 +0530	commit: Add Founder and Team Members section to About page
+9143c571f29821e6adc31ead70bb43a064d07b69 123ec0f632215338e6c496c4ad7a22f83c3410eb Gulesh Patel <guleshpatel@gmail.com> 1791053843 +0530	commit: Update Project UI and add Fullscreen Viewer
+123ec0f632215338e6c496c4ad7a22f83c3410eb 13f833506a7867b04e0763bd4a52f46cb43870dd Gulesh Patel <guleshpatel@gmail.com> 1791091092 +0530	commit: Add regenerated logo to header, footer, and favicon
+13f833506a7867b04e0763bd4a52f46cb43870dd 7aae33400d88334f12cd46757352b0f56b778f8b Gulesh Patel <guleshpatel@gmail.com> 1791091367 +0530	commit: Fix logo display in header and footer
+7aae33400d88334f12cd46757352b0f56b778f8b 255adaf613f76a9f5e252b8b5ffc7cfbdf1bbc3f Gulesh Patel <guleshpatel@gmail.com> 1791092028 +0530	commit: Update logo to match client design exactly and set white background
+255adaf613f76a9f5e252b8b5ffc7cfbdf1bbc3f 7ab9fed9edf920e69d89f6bfbebcf4fb84ff76be Gulesh Patel <guleshpatel@gmail.com> 1791139726 +0530	commit: Update website title to Architecture Sohan Mali
+7ab9fed9edf920e69d89f6bfbebcf4fb84ff76be 6f37812342d566a4be1423ae36e9b2d433aecbb6 Gulesh Patel <guleshpatel@gmail.com> 1791593414 +0530	commit: Update logo and favicon

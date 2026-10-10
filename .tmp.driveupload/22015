@@ -15,7 +15,7 @@ export function SiteFooter({ content }: SiteFooterProps) {
         <div className={styles.topSection}>
           <div className={styles.brandInfo}>
             <Link to="/" className={styles.logo}>
-              <img src="/client-logo.png" alt="Architecture Logo" className={styles.logoImage} />
+              <img src="/final-logo.jpg" alt="Architecture Logo" className={styles.logoImage} />
               <span>{footer.logo}</span>
             </Link>
             <p className={styles.tagline}>{footer.tagline}</p>

@@ -40,10 +40,10 @@
 }
 
 .logoImage {
-  height: 64px;
-  width: 64px;
+  height: 32px;
+  width: 32px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 4px;
   background-color: white;
 }
 
