@@ -134,7 +134,10 @@ function App() {
   const [sent, setSent] = useState(false);
 
   // Legacy CSS is now imported statically.
-  useEffect(() => { window.scrollTo({ top: 0, behavior: 'auto' }); }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    document.title = 'Architect Sohan Mali';
+  }, []);
   useEffect(() => {
     const onPopState = () => setPage(pageFromPathname(window.location.pathname));
     window.addEventListener('popstate', onPopState);
