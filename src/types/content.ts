@@ -39,10 +39,12 @@ export interface FounderInfo {
   quote?: string;
 }
 
+export type HeroSliderItem = string | { url: string; duration?: number };
+
 export interface WebsiteContent {
   site: { logo: string; nav_cta: string };
   home: {
-    hero: { badge: string; title_line1: string; title_highlight: string; services: string[]; btn_primary: string; btn_secondary: string; sliderImages?: string[] };
+    hero: { badge: string; title_line1: string; title_highlight: string; services: string[]; btn_primary: string; btn_secondary: string; sliderImages?: HeroSliderItem[] };
     stats: Stat[];
     featured: { label: string; title_line1: string; title_em: string; cards: Array<{ category: string; title: string; image: string }> };
     philosophy: { image?: string; label: string; title_line1: string; title_em: string; text: string };

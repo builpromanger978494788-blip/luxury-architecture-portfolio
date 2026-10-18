@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useRef, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties, type FormEvent, type MouseEvent } from 'react';
 import { useWebsiteContent } from './hooks/useWebsiteContent';
 import { assetUrl } from './lib/asset-url';
 import type { Project, WebsiteContent } from './types/content';
@@ -53,70 +53,81 @@ function Footer({ content, navigate }: { content: WebsiteContent; navigate: (pag
   );
 }
 
-function HeroSlider({ images }: { images?: string[] }) {
-  const validImages = images?.filter(img => img && img.trim() !== '') || [];
-  
-  // If user has uploaded/configured images, use only them. Otherwise fall back to default seed images.
-  const finalImages = validImages.length > 0 
-    ? validImages 
-    : ((seedContent as any).home?.hero?.sliderImages || []);
+interface NormalizedSlide {
+  url: string;
+  duration: number; // duration in seconds
+}
+
+function normalizeHeroSlide(item: any): NormalizedSlide | null {
+  if (!item) return null;
+  if (typeof item === 'string') {
+    const url = item.trim();
+    return url ? { url, duration: 4 } : null;
+  }
+  if (typeof item === 'object') {
+    const rawUrl = typeof item.url === 'string' ? item.url.trim() : '';
+    if (!rawUrl) return null;
+    const d = Number(item.duration);
+    const duration = !isNaN(d) && d > 0 ? d : 4;
+    return { url: rawUrl, duration };
+  }
+  return null;
+}
+
+function HeroSlider({ images }: { images?: (string | { url: string; duration?: number })[] }) {
+  const slides: NormalizedSlide[] = useMemo(() => {
+    const active = (images || [])
+      .map(normalizeHeroSlide)
+      .filter((s): s is NormalizedSlide => s !== null && s.url.length > 0);
+
+    if (active.length > 0) return active;
+
+    const seedSlides = ((seedContent as any).home?.hero?.sliderImages || [])
+      .map(normalizeHeroSlide)
+      .filter((s): s is NormalizedSlide => s !== null && s.url.length > 0);
+
+    return seedSlides;
+  }, [images]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(-1);
 
-  const lengthRef = useRef(finalImages.length);
-  lengthRef.current = finalImages.length;
-  
-  const currentIndexRef = useRef(currentIndex);
-  currentIndexRef.current = currentIndex;
-
   useEffect(() => {
-    // Reset index if image list length changes and currentIndex is out of bounds
-    if (currentIndex >= finalImages.length) {
+    if (currentIndex >= slides.length) {
       setCurrentIndex(0);
+      setPrevIndex(-1);
     }
-  }, [finalImages.length]);
+  }, [slides.length, currentIndex]);
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
-    const nextSlide = () => {
-      const currentLength = lengthRef.current;
-      const currentIdx = currentIndexRef.current;
-      
-      if (currentLength > 1) {
-        setCurrentIndex((prev) => {
-          setPrevIndex(prev);
-          return (prev + 1) % currentLength;
-        });
-        
-        const isNextFirst = (currentIdx + 1) % currentLength === 0;
-        const delay = isNextFirst ? 1200 : 2500;
-        timeoutId = setTimeout(nextSlide, delay);
-      }
-    };
+    if (slides.length <= 1) return;
 
-    if (finalImages.length > 1) {
-      timeoutId = setTimeout(nextSlide, 1200);
-    }
+    const currentSlide = slides[currentIndex];
+    const durationSec = currentSlide?.duration && currentSlide.duration > 0 ? currentSlide.duration : 4;
+    const durationMs = Math.max(1000, durationSec * 1000);
 
-    return () => clearTimeout(timeoutId);
-  }, [finalImages.length]);
+    const timer = setTimeout(() => {
+      setPrevIndex(currentIndex);
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, durationMs);
 
-  if (finalImages.length === 0) return null;
+    return () => clearTimeout(timer);
+  }, [currentIndex, slides]);
+
+  if (slides.length === 0) return null;
 
   return (
     <div className="hero-slider">
-      {finalImages.map((img: string, index: number) => {
+      {slides.map((slide, index) => {
         let className = 'hero-slide';
         if (index === currentIndex) className += ' active';
         else if (index === prevIndex) className += ' prev';
-        
+
         return (
           <div
-            key={index}
+            key={`${slide.url}-${index}`}
             className={className}
-            style={{ backgroundImage: `url(${img})` }}
+            style={{ backgroundImage: `url(${slide.url})` }}
           />
         );
       })}
