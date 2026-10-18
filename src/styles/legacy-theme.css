@@ -387,6 +387,7 @@
       z-index: 10;
       max-width: 900px;
       text-align: center;
+      transform: translateY(-42px);
     }
 
     .hero-badge {
@@ -397,7 +398,7 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #ede6da;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
       background: rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
@@ -448,7 +449,7 @@
       font-weight: 300 !important;
       line-height: 1.08 !important;
       color: #ffffff !important;
-      margin-bottom: 28px !important;
+      margin-bottom: 20px !important;
       animation: fadeSlideUp 1s var(--ease-out) 0.4s both;
       letter-spacing: -0.01em !important;
       text-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
@@ -477,7 +478,7 @@
       text-transform: uppercase !important;
       color: #ffffff !important;
       font-weight: 400 !important;
-      margin-bottom: 56px !important;
+      margin-bottom: 32px !important;
       animation: fadeSlideUp 1s var(--ease-out) 0.6s both;
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6) !important;
     }
@@ -573,7 +574,7 @@
 
     .hero-scroll {
       position: absolute;
-      bottom: 40px;
+      bottom: 22px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -2212,6 +2213,10 @@
 
       .hero {
         padding: 0 24px;
+      }
+
+      .hero-content {
+        transform: translateY(-20px);
       }
 
       .hero-title {
