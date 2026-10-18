@@ -76,15 +76,17 @@ function normalizeHeroSlide(item: any): NormalizedSlide | null {
 
 function HeroSlider({ images }: { images?: (string | { url: string; duration?: number })[] }) {
   const slides: NormalizedSlide[] = useMemo(() => {
-    const active = (images || [])
-      .map(normalizeHeroSlide)
-      .filter((s): s is NormalizedSlide => s !== null && s.url.length > 0);
+    const rawActive = images || [];
+    const active = rawActive
+      .map((item) => normalizeHeroSlide(item))
+      .filter((s: NormalizedSlide | null): s is NormalizedSlide => s !== null && s.url.length > 0);
 
     if (active.length > 0) return active;
 
-    const seedSlides = ((seedContent as any).home?.hero?.sliderImages || [])
-      .map(normalizeHeroSlide)
-      .filter((s): s is NormalizedSlide => s !== null && s.url.length > 0);
+    const rawSeed = (seedContent as WebsiteContent).home?.hero?.sliderImages || [];
+    const seedSlides = rawSeed
+      .map((item) => normalizeHeroSlide(item))
+      .filter((s: NormalizedSlide | null): s is NormalizedSlide => s !== null && s.url.length > 0);
 
     return seedSlides;
   }, [images]);
