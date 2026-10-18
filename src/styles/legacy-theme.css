@@ -81,7 +81,7 @@
       }
     }
 
-    /* ── Nav ── */
+    /* ── Nav (Header Card) ── */
     nav {
       position: fixed;
       top: 0;
@@ -93,14 +93,15 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 48px;
-      background: rgba(250, 248, 245, 0.82);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-      transition: background 0.4s var(--ease);
+      background: var(--cream);
+      box-shadow: 0 2px 20px rgba(61, 53, 48, 0.06);
+      border-bottom: 1px solid var(--sand);
+      transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
     }
 
     nav.scrolled {
-      background: rgba(250, 248, 245, 0.96);
+      background: var(--cream);
+      box-shadow: 0 4px 24px rgba(61, 53, 48, 0.1);
     }
 
     .nav-logo {
@@ -258,7 +259,8 @@
 
     /* Hero */
     .hero {
-      min-height: 100vh;
+      margin-top: var(--nav-h);
+      min-height: calc(100vh - var(--nav-h));
       display: flex;
       align-items: center;
       justify-content: center;
